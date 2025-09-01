@@ -1,0 +1,15 @@
+{
+  "welcome": "Welcome",
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "random": "???"
+  },
+  "nav": {
+    "experience": "Experience",
+    "education": "Education",
+    "projects": "Projects",
+    "about": "About me",
+    "contact": "Contact"
+  }
+}
