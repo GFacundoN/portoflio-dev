@@ -9,6 +9,9 @@ export default {
         'diamond-dark': 'radial-gradient(ellipse at center, #00013A 0%, #000015 100%)',
         'diamond-light': 'radial-gradient(ellipse at center, #9EA0FF 0%, #EEEFFF 100%)',
       },
+      fontFamily: {
+        sans: ['"Onest"', 'sans-serif'], 
+      },
     },
   },
   plugins: [require("daisyui")],
