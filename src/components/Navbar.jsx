@@ -53,7 +53,7 @@ export default function Navbar({ setTheme }) {
   };
 
   return (
-    <nav className="w-full flex justify-center items-center p-4">
+    <nav className="w-full flex z-10 justify-center items-center p-4 fixed">
       {/* Invisible measure block */}
       <div
         ref={measureRef}

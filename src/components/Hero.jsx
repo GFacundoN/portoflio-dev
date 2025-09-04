@@ -16,7 +16,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 md:px-20">
+    <section className="min-h-[calc(100vh)] flex items-center justify-center px-4 md:px-20 ">
       <div
         className={`grid grid-cols-1 md:grid-cols-2 gap-6 items-center w-full max-w-[1300px] transition-all duration-700 ease-out transform ${
           visible
