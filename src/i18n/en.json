@@ -12,6 +12,13 @@
     "about": "About me",
     "contact": "Contact"
   },
+  "education": {
+    "description": "My academic background and professional certifications that support my experience in web development and modern technologies.",
+    "viewCertificate": "View certificate",
+    "certificates": "Certificates",
+    "hoursLearning": "Learning hours",
+    "currentYear": "Current year"
+  },
   "hero": {
     "title": "Hi, I'm Facundo Gandolfo",
     "subtitle": "Front-End Developer",

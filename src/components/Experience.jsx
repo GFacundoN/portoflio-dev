@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import ExperienceIcon from "../assets/icons/experience.svg?react";
 import LinkedInIcon from "../assets/icons/linkedinDark.svg?react";
+import RightArrowIcon from "../assets/icons/rightArrow.svg?react";
 
 export default function Experience() {
   const { t } = useTranslation();
@@ -9,8 +10,8 @@ export default function Experience() {
     <section id="experiencia" className="py-20 px-4 md:px-20 text-white">
       <div className="max-w-[1300px] mx-auto">
         {/* Título */}
-        <div className="flex items-center gap-3 mb-10">
-          <ExperienceIcon className="w-7 h-7 text-white" />
+        <div className="flex items-center gap-3 mb-10 justify-center">
+          <ExperienceIcon className="w-10 h-10 text-white" />
           <h2 className="text-3xl sm:text-4xl font-extrabold">
             {t("nav.experience")}
           </h2>
@@ -23,20 +24,17 @@ export default function Experience() {
             <div className="absolute left-1.5 top-0 h-full w-px bg-white/20" />
 
             <div className="relative pl-5">
-              <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-green-500" />
+              <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-[#00EC7A]" />
               <h3 className="text-green-500 font-bold text-lg">
                 Freelancer
               </h3>
-              <h4 className="text-white font-bold -mt-1 leading-none">
-                Fiverr
-              </h4>
               <p className="text-gray-400 text-sm mt-0.5">
                 Agosto 2025 - Actualidad
               </p>
             </div>
 
             <div className="relative pl-5">
-              <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-green-500" />
+              <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-[#00EC7A]" />
               <h3 className="text-green-500 font-bold text-lg">
                 Pasante - Frontend
               </h3>
@@ -57,9 +55,9 @@ export default function Experience() {
               </p>
               <a
                 href="#"
-                className="text-green-500 font-semibold text-sm hover:underline inline-flex items-center gap-1"
+                className="text-[#00EC7A] font-semibold text-sm hover:underline inline-flex items-center gap-2"
               >
-                Saber más <span className="text-lg leading-none">→</span>
+                Saber más <RightArrowIcon className="w-4 h-4" />
               </a>
             </div>
 

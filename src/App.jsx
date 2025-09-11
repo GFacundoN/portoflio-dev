@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import "./i18n";
 import Hero from "./components/Hero";
 import Experience from "./components/Experience";
+import Education from "./components/Education";
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
@@ -17,6 +18,7 @@ function App() {
       <Navbar setTheme={setTheme} />
       <Hero />
       <Experience />
+      <Education />
     </div>
   );
 }
