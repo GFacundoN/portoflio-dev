@@ -58,12 +58,12 @@ export default function Education() {
           {educationData.map((item) => (
             <div
               key={item.id}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-[#00EC7A]/30 transition-all duration-300 group cursor-pointer"
+              className="bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-700/50 hover:border-[#00EC7A]/30 transition-all duration-100 group cursor-pointer"
             >
               {/* Imagen del certificado con hover overlay */}
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={item.image} 
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover transition-all duration-300"
                 />
