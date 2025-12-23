@@ -1,0 +1,27 @@
+{
+  "name": "Facundo Gandolfo - Front-End Developer",
+  "short_name": "Facundo Gandolfo",
+  "description": "Portfolio profesional de Facundo Nicolás Gandolfo - Desarrollador Front-End especializado en React y JavaScript",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000015",
+  "theme_color": "#000015",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "development", "web"],
+  "lang": "es-AR",
+  "dir": "ltr"
+}

@@ -3,11 +3,12 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       backgroundImage: {
         'diamond-dark': 'radial-gradient(ellipse at center, #00013A 0%, #000015 100%)',
-        'diamond-light': 'radial-gradient(ellipse at center, #9EA0FF 0%, #EEEFFF 100%)',
+        'diamond-light': 'radial-gradient(ellipse at center, #E8EAFF 0%, #F5F7FF 100%)',
       },
       fontFamily: {
         sans: ['"Onest"', 'sans-serif'], 

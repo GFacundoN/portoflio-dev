@@ -3,11 +3,11 @@
   "theme": {
     "light": "Claro",
     "dark": "Oscuro",
-    "random": "???"
+    "random": "Próximamente"
   },
   "nav": {
     "experience": "Experiencia",
-    "education": "Educación",
+    "education": " Educación",
     "projects": "Proyectos",
     "about": "Sobre mí",
     "contact": "Contacto"
@@ -15,17 +15,83 @@
   "education": {
     "description": "Mi formación académica y certificaciones profesionales que respaldan mi experiencia en desarrollo web y tecnologías modernas.",
     "viewCertificate": "Ver certificado",
+    "moreCertifications": "+5 certificaciones más",
     "certificates": "Certificaciones",
     "hoursLearning": "Horas de aprendizaje",
-    "currentYear": "Año actual"
+    "currentYear": "Año actual",
+    "items": [
+      {
+        "title": "Certificado Profesional de Desarrollador Front-End de Meta",
+        "institution": "Meta",
+        "period": "2024",
+        "description": "Orientada al desarrollo de interfaces modernas, accesibles y responsivas, aplicando tecnologías como HTML, CSS, JavaScript y React, junto con buenas prácticas de diseño y experiencia de usuario.",
+        "skills": ["React.js", "UX/UI Design", "JavaScript", "Git", "+2"]
+      },
+      {
+        "title": "Fundamentos de IA de Google",
+        "institution": "Google",
+        "period": "2024",
+        "description": "Formación enfocada en fundamentos de inteligencia artificial, uso responsable de IA, modelos generativos y aplicaciones prácticas para mejorar productividad, análisis de datos y decisiones hoy.",
+        "skills": ["Prompt Engineering", "Resolución de Problemas", "Pensamiento Crítico", "+3"]
+      },
+      {
+        "title": "Técnico en Programación",
+        "institution": "EEST N°7 José Hernández",
+        "period": "2023 - 2024",
+        "description": "Formación técnica en programación orientada al desarrollo de software, lógica computacional y resolución de problemas, aplicando lenguajes, estructuras de datos y buenas prácticas, con experiencia en proyectos prácticos y bases sólidas para el ámbito profesional.",
+        "skills": ["JavaScript", "MySQL", "Java", "Gestión de Proyectos", "+5"]
+      }
+    ]
   },
   "hero": {
     "title": "Hola, soy Facundo Gandolfo",
     "subtitle": "Front-End Developer",
-    "paragraph": "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi. Lorem ipsum dolor sit amet consectetur adipiscing elit quisque.",
-    "work": "Mirá mi trabajo",
+    "paragraph": "Desarrollador front-end especializado en React y JavaScript. Trabajo en proyectos web desde el diseño hasta la implementación, enfocándome en código limpio y soluciones prácticas.",
+    "work": "Mirá mi Trabajo",
     "contact": "Contactame",
     "available": "Disponible para trabajar"
+  },
+  "experience": {
+    "freelancer": {
+      "title": "Freelancer",
+      "date": "Agosto 2025 - Actualidad",
+      "description": "Desarrollo de aplicaciones web, desktop y móviles (Android) con React, JavaScript, TypeScript y MySQL. Trabajo directo con clientes, desde el relevamiento de requerimientos hasta la implementación y mantenimiento de soluciones.",
+      "learnMore": "Saber más"
+    },
+    "intern": {
+      "title": "Pasante - Frontend",
+      "company": "Modica Seguros",
+      "date": "Mayo 2025 - Noviembre 2025",
+      "description": "Desarrollo de aplicación web corporativa en equipo. Liderazgo del equipo front-end, coordinando tareas y delegando responsabilidades. Colaboración con backend y base de datos para alinear la solución a los requerimientos del proyecto."
+    }
+  },
+  "aboutMe": {
+    "paragraph1": "Técnico en Programación y desarrollador front-end con una base sólida en proyectos académicos, prácticas profesionales y trabajos independientes, enfocado en crear soluciones web claras, funcionales y bien pensadas, combinando programación, diseño y experiencia de usuario.",
+    "paragraph2": "Actualmente estudiante de Ingeniería en Sistemas de la Información en la UTN, con formación certificada por Meta, Google y MIT Professional Education, entre otros, participación en eventos tecnológicos y reconocimiento en competencias, siempre con curiosidad por aprender y mejorar.",
+    "paragraph3": "Me motiva crecer como desarrollador, sumar experiencia real y aportar valor en equipos de trabajo colaborativos, aplicando buenas prácticas, pensamiento lógico y compromiso con la calidad, buscando desafíos que impulsen mi evolución profesional."
+  },
+  "projects": {
+    "viewMore": "Ver más",
+    "items": [
+      {
+        "title": "Verdulería \"La Jungla\"",
+        "description": "Aplicación de escritorio y app móvil para la gestión y entrega de pedidos con módulo de estadísticas."
+      },
+      {
+        "title": "\"E-Scapadas\" - Olimpiadas ETP Programación 2025",
+        "description": "Portal de ventas de paquetes turísticos, con autenticación, roles, envíos de mails, etc."
+      },
+      {
+        "title": "Desarrolladora inmobiliaria \"KeyHub\"",
+        "description": "Web de compra, venta y alquiler de inmuebles. Con autenticación, roles, envíos de mails, etc."
+      },
+      {
+        "title": "Super Mario Java",
+        "description": "Primer nivel del juego Super Mario Bros desarrollado por Nintendo en los 80', pero hecho en Java."
+      }
+    ]
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
   }
-
 }

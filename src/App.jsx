@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
+import AboutMe from "./components/AboutMe";
 
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "dark");
@@ -15,12 +16,13 @@ function App() {
   }, [theme]);
 
   return (
-    <div className={`min-h-screen transition-all ${theme === "dark" ? "bg-diamond-dark" : "bg-diamond-light"}`}>
+    <div className={`min-h-screen transition-all ${theme === "dark" ? "dark bg-diamond-dark" : "bg-diamond-light"}`}>
       <Navbar setTheme={setTheme} />
       <Hero />
       <Experience />
       <Education />
       <Projects />
+      <AboutMe />
     </div>
   );
 }

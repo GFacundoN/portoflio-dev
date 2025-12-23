@@ -2,10 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Variables de tema */
+[data-theme="dark"] {
+  --text-primary: rgb(255, 255, 255);
+  --text-secondary: rgb(209, 213, 219);
+  --text-tertiary: rgb(156, 163, 175);
+  --bg-card: rgb(31, 41, 55);
+  --bg-card-hover: rgb(46, 56, 69);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --navbar-bg: rgba(31, 41, 55, 0.9);
+}
+
+[data-theme="light"] {
+  --text-primary: rgb(17, 24, 39);
+  --text-secondary: rgb(55, 65, 81);
+  --text-tertiary: rgb(107, 114, 128);
+  --bg-card: rgb(255, 255, 255);
+  --bg-card-hover: rgb(249, 250, 251);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+}
+
 .animated-border-gradient {
   position: relative;
   z-index: 0;
-  background: #1f2937; /* mismo color que el fondo del botón */
+  background: var(--bg-card);
   border-radius: 9999px;
 }
 
@@ -30,4 +55,55 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Scrollbar personalizado para modo claro */
+html[data-theme="light"] ::-webkit-scrollbar {
+  width: 12px;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #E8EAFF;
+  border-radius: 10px;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #9EA0FF;
+  border-radius: 10px;
+  border: 2px solid #E8EAFF;
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #7B7DFF;
+}
+
+/* Scrollbar personalizado para modo oscuro */
+html[data-theme="dark"] ::-webkit-scrollbar {
+  width: 12px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: #000015;
+  border-radius: 10px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #2D3340;
+  border-radius: 10px;
+  border: 2px solid #000015;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: #4885FF;
+}
+
+/* Firefox scrollbar */
+html[data-theme="light"] {
+  scrollbar-width: thin;
+  scrollbar-color: #9EA0FF #E8EAFF;
+}
+
+html[data-theme="dark"] {
+  scrollbar-width: thin;
+  scrollbar-color: #2D3340 #000015;
 }

@@ -3,7 +3,7 @@
   "theme": {
     "light": "Light",
     "dark": "Dark",
-    "random": "???"
+    "random": "Coming soon"
   },
   "nav": {
     "experience": "Experience",
@@ -15,18 +15,83 @@
   "education": {
     "description": "My academic background and professional certifications that support my experience in web development and modern technologies.",
     "viewCertificate": "View certificate",
+    "moreCertifications": "+5 more certifications",
     "certificates": "Certificates",
     "hoursLearning": "Learning hours",
-    "currentYear": "Current year"
+    "currentYear": "Current year",
+    "items": [
+      {
+        "title": "Meta Front-End Developer Professional Certificate",
+        "institution": "Meta",
+        "period": "2024",
+        "description": "Focused on developing modern, accessible, and responsive interfaces, applying technologies such as HTML, CSS, JavaScript, and React, along with design best practices and user experience.",
+        "skills": ["React.js", "UX/UI Design", "JavaScript", "Git", "+2"]
+      },
+      {
+        "title": "Google AI Essentials",
+        "institution": "Google",
+        "period": "2024",
+        "description": "Training focused on artificial intelligence fundamentals, responsible AI use, generative models, and practical applications to improve productivity, data analysis, and decision-making today.",
+        "skills": ["Prompt Engineering", "Problem Solving", "Critical Thinking", "+3"]
+      },
+      {
+        "title": "Programming Technician",
+        "institution": "EEST N°7 José Hernández",
+        "period": "2023 - 2024",
+        "description": "Technical training in programming oriented to software development, computational logic, and problem-solving, applying languages, data structures, and best practices, with hands-on project experience and solid foundations for professional environments.",
+        "skills": ["JavaScript", "MySQL", "Java", "Project Management", "+5"]
+      }
+    ]
   },
   "hero": {
     "title": "Hi, I'm Facundo Gandolfo",
     "subtitle": "Front-End Developer",
-    "paragraph": "Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus ex sapien vitae pellentesque sem placerat in id cursus mi. Lorem ipsum dolor sit amet consectetur adipiscing elit quisque.",
+    "paragraph": "Front-end developer specialized in React and JavaScript. I work on web projects from design to implementation, focusing on clean code and practical solutions.",
     "work": "Check my work",
     "contact": "Contact me",
     "available": "Available to work"
+  },
+  "experience": {
+    "freelancer": {
+      "title": "Freelancer",
+      "date": "August 2025 - Present",
+      "description": "Development of web, desktop, and mobile (Android) applications using React, JavaScript, TypeScript, and MySQL. Direct client collaboration from requirements gathering to implementation and maintenance of solutions.",
+      "learnMore": "Learn more"
+    },
+    "intern": {
+      "title": "Frontend Intern",
+      "company": "Modica Seguros",
+      "date": "May 2025 - November 2025",
+      "description": "Development of corporate web application within a team. Front-end team leadership, coordinating tasks and delegating responsibilities. Collaboration with backend and database teams to align the solution with project requirements."
+    }
+  },
+  "aboutMe": {
+    "paragraph1": "Programming Technician and front-end developer with a solid foundation in academic projects, professional internships, and freelance work, focused on creating clear, functional, and well-thought-out web solutions, combining programming, design, and user experience.",
+    "paragraph2": "Currently a student of Information Systems Engineering at UTN, with certified training from Meta, Google, and MIT Professional Education, among others, participation in tech events and recognition in competitions, always curious to learn and improve.",
+    "paragraph3": "I'm motivated to grow as a developer, gain real experience, and add value to collaborative teams, applying best practices, logical thinking, and commitment to quality, seeking challenges that drive my professional evolution."
+  },
+  "projects": {
+    "viewMore": "View more",
+    "items": [
+      {
+        "title": "\"La Jungla\" Grocery Store",
+        "description": "Desktop and mobile app for order management and delivery with statistics module."
+      },
+      {
+        "title": "\"E-Scapadas\" - ETP Programming Olympics 2025",
+        "description": "Travel package sales portal with authentication, roles, email sending, etc."
+      },
+      {
+        "title": "\"KeyHub\" Real Estate Developer",
+        "description": "Property buying, selling, and rental website. With authentication, roles, email sending, etc."
+      },
+      {
+        "title": "Super Mario Java",
+        "description": "First level of the Super Mario Bros game developed by Nintendo in the 80s, but made in Java."
+      }
+    ]
+  },
+  "footer": {
+    "rights": "All rights reserved"
   }
-
-
 }

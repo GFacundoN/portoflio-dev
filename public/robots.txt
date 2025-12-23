@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gfacundon.dev/sitemap.xml
+
+# Disallow admin or private paths if any
+# Disallow: /admin/
+
+# Crawl-delay (optional, for rate limiting)
+Crawl-delay: 1
