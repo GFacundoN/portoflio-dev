@@ -41,7 +41,7 @@ const AboutMe = () => {
                     <img 
                     src={aboutMeImage} 
                     alt="Facundo Gandolfo" 
-                    className="w-full h-auto max-w-m mx-auto shadow-lg"
+                    className="w-full h-auto max-w-m mx-auto"
                     />
                 </div>
             </div>
