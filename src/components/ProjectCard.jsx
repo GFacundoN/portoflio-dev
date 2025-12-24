@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import GithubIcon from "../assets/icons/github.svg?react";
 import LinkIcon from "../assets/icons/link.svg?react";
 
 export default function ProjectCard({ project }) {
+  const { t } = useTranslation();
   const ImageComponent = project.image;
   const isReactComponent = typeof ImageComponent === 'function';
 
@@ -40,7 +42,7 @@ export default function ProjectCard({ project }) {
             className="flex items-center gap-2 transition-colors rounded-2xl text-sm border py-2 px-3 bg-white dark:bg-[#1F2937] hover:bg-gray-100 dark:hover:bg-[#2E3845] border-gray-300 dark:border-[#2E3845] text-gray-900 dark:text-white"
           >
             <GithubIcon className="w-5 h-5 text-gray-900 dark:text-white" />
-            Código
+            {t("projects.code")}
           </a>
           {project.id === 1 && (
             <a
@@ -50,7 +52,7 @@ export default function ProjectCard({ project }) {
               className="flex items-center gap-2 transition-colors rounded-2xl text-sm border py-2 px-3 bg-white dark:bg-[#1F2937] hover:bg-gray-100 dark:hover:bg-[#2E3845] border-gray-300 dark:border-[#2E3845] text-gray-900 dark:text-white"
             >
               <LinkIcon className="w-5 h-5 text-gray-900 dark:text-white" />
-              Preview
+              {t("projects.preview")}
             </a>
           )}
         </div>

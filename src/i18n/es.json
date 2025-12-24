@@ -45,7 +45,7 @@
   },
   "hero": {
     "title": "Hola, soy Facundo Gandolfo",
-    "subtitle": "Front-End Developer",
+    "subtitle": "Desarrollador Frontend",
     "paragraph": "Desarrollador front-end especializado en React y JavaScript. Trabajo en proyectos web desde el diseño hasta la implementación, enfocándome en código limpio y soluciones prácticas.",
     "work": "Mirá mi Trabajo",
     "contact": "Contactame",
@@ -71,6 +71,8 @@
     "paragraph3": "Me motiva crecer como desarrollador, sumar experiencia real y aportar valor en equipos de trabajo colaborativos, aplicando buenas prácticas, pensamiento lógico y compromiso con la calidad, buscando desafíos que impulsen mi evolución profesional."
   },
   "projects": {
+    "code": "Código",
+    "preview": "Preview",
     "viewMore": "Ver más",
     "items": [
       {
