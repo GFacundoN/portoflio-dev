@@ -1,6 +1,9 @@
 import { useTranslation } from "react-i18next";
 import EducationIcon from "../assets/icons/education.svg?react";
 import LinkedInIcon from "../assets/icons/linkedinDark.svg?react";
+import metaCertificate from "../assets/certificates/meta.svg";
+import aiEssentialsCertificate from "../assets/certificates/aiEssentials.svg";
+import tecnicoCertificate from "../assets/certificates/tecnico.svg";
 
 export default function Education() {
   const { t } = useTranslation();
@@ -11,6 +14,12 @@ export default function Education() {
     'https://www.linkedin.com/posts/gfacundon_programaciaejn-tech-tecnicatura-activity-7407404351197040641-Bg14?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE-HXC0BQGjCUTK036VbuOaBM4qu4eXxvpc'
   ];
 
+  const certificateImages = [
+    metaCertificate,
+    aiEssentialsCertificate,
+    tecnicoCertificate
+  ];
+
   const educationData = t("education.items", { returnObjects: true }).map((item, index) => ({
     id: index + 1,
     title: item.title,
@@ -19,7 +28,7 @@ export default function Education() {
     description: item.description,
     skills: item.skills,
     certificateUrl: certificateUrls[index],
-    image: `/src/assets/certificates/${index === 0 ? 'meta' : index === 1 ? 'aiEssentials' : 'tecnico'}.svg`
+    image: certificateImages[index]
   }));
 
   return (
