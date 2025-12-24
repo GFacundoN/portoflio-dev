@@ -15,6 +15,7 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+
   return (
     <div className={`min-h-screen transition-all ${theme === "dark" ? "dark bg-diamond-dark" : "bg-diamond-light"}`}>
       <Navbar setTheme={setTheme} />
