@@ -9,7 +9,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/GFacundoN)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
 
-![Portfolio Preview](https://gfacundon.dev/og-image.jpg)
+![Portfolio Preview](https://gfacundon.dev/og-facundo-gandolfo.jpg)
 
 **[Español](./README-es.md)** | **English**
 
@@ -132,7 +132,7 @@ npm run preview
 my-portfolio/
 ├── public/
 │   ├── favicon.svg
-│   ├── og-image.jpg           # Open Graph image
+│   ├── og-facundo-gandolfo.jpg # Open Graph image
 │   ├── apple-touch-icon.png
 │   ├── icon-192.png
 │   ├── icon-512.png
