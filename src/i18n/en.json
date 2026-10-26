@@ -19,7 +19,7 @@
   "hero": {
     "title": "Hi, I'm Facundo Gandolfo",
     "subtitle": "Full-Stack Developer & Tech Lead",
-    "paragraph": "I design and build web applications end to end with React, TypeScript and Spring Boot. Today I lead the team replacing Modica Seguros' policy management system, and I work with clients in Argentina and abroad turning ideas into real products.",
+    "paragraph": "I build complete web applications, from the Figma design to the database. At Modica Seguros I lead the team moving their policy management out of an Excel spreadsheet. On the side, I build sites and systems for clients in Argentina, Spain, Portugal and the United States.",
     "work": "See my work",
     "contact": "Contact me",
     "cv": "View resume",
@@ -32,28 +32,28 @@
   },
   "services": {
     "title": "Services",
-    "description": "If you have a business or an idea, I'll help you take it to production: from the Figma design to deployment and maintenance.",
+    "description": "You work with me directly: we define what you need, I show you the design in Figma before writing code, and you get something you can actually use and maintain.",
     "cta": "Request a quote",
     "items": [
       {
         "title": "Websites & landing pages",
-        "description": "Company sites, landing pages and stores that are fast, responsive and ready to rank on Google."
+        "description": "So people find you and get in touch. AndesTex's went live in two days."
       },
       {
         "title": "Internal systems & dashboards",
-        "description": "I replace Excel spreadsheets with web apps featuring roles, reports and data import/export."
+        "description": "If your business runs on a spreadsheet only one person understands, it can become a system with users, permissions and reports. That's what I do every day at Modica."
       },
       {
         "title": "Desktop & mobile apps",
-        "description": "Custom apps to manage orders, stock or customers, connected to your own database."
+        "description": "To take orders, organize deliveries or track stock. Like La Jungla's: one app for the counter and another for the delivery driver."
       },
       {
         "title": "UI design in Figma",
-        "description": "Clean, well-organized prototypes and designs, ready to validate with your users or hand off to development."
+        "description": "If you don't want to build anything yet, we start with a prototype to test the idea. Several Fiverr clients hired me just for this."
       },
       {
         "title": "Maintenance & improvements",
-        "description": "Support, new features and refactors so your product keeps growing without breaking."
+        "description": "Fixes, new features, or cleaning up code that grew without a plan. I've already restructured an entire backend so a new team could work on it."
       }
     ]
   },
@@ -113,7 +113,7 @@
   },
   "clients": {
     "title": "Client work",
-    "description": "Some real projects I built for businesses: what they needed, what I built and what changed.",
+    "description": "Projects for real businesses: what they needed and how it turned out.",
     "problem": "Need",
     "solution": "Solution",
     "result": "Outcome",
@@ -125,7 +125,7 @@
         "type": "Internal system · Website",
         "problem": "All policy management lived in Excel spreadsheets that were hard to maintain and share.",
         "solution": "A web application with an admin dashboard, roles and Excel import/export, plus an informational website for their clients.",
-        "result": "Operations are centralized in a single system, and I now lead the project with a team of interns."
+        "result": "Policies move from several spreadsheets into a single system. I joined the project as an intern and now I lead it."
       },
       {
         "client": "AndesTex",
@@ -139,7 +139,7 @@
         "type": "Online store · YPF Uniformes",
         "problem": "After the landing page, they needed to sell online the workwear they manufacture for YPF service stations.",
         "solution": "An online store built with Astro, with a categorized catalog, prices and a shopping cart.",
-        "result": "Returning client: from a landing page to their own sales platform."
+        "result": "Stations build their own orders from the catalog; AndesTex only handles invoicing and delivery."
       },
       {
         "client": "\"La Jungla\" Greengrocer",
@@ -157,7 +157,7 @@
     }
   },
   "projects": {
-    "description": "Personal and academic projects where I explore new technologies.",
+    "description": "School and personal projects. This is where I learned most of what I use today.",
     "code": "Code",
     "preview": "Preview",
     "viewMore": "See more on GitHub",
@@ -180,7 +180,7 @@
     ]
   },
   "education": {
-    "description": "My academic background and professional certifications.",
+    "description": "Where I studied and what I'm studying now.",
     "viewCertificate": "View certificate",
     "viewProgram": "View program",
     "inProgress": "In progress",
@@ -219,7 +219,7 @@
   },
   "achievements": {
     "title": "Achievements & talks",
-    "description": "Competitions, talks and recognition beyond day-to-day work.",
+    "description": "What I've done outside of work: competitions, a talk and some volunteering.",
     "post": {
       "label": "LinkedIn post",
       "role": "Speaker · Ekoparty Security Conference 2024",
@@ -270,13 +270,13 @@
     ]
   },
   "aboutMe": {
-    "paragraph1": "I'm a Programming Technician and full-stack developer. I started as an intern at Modica Seguros and today I'm the technical lead of the team building their internal system, while I keep working with my own clients as a freelancer.",
-    "paragraph2": "I care about both the code and the product: how to structure a backend so a new team understands it quickly, how an interface looks in Figma before writing a single line, and how to explain a technical decision to someone who isn't technical.",
-    "paragraph3": "I'm currently taking ITBA's Full Stack Developer program on a Santander Open Academy scholarship. I'm looking for projects and teams where I can keep growing and deliver real value."
+    "paragraph1": "I joined Modica Seguros as an intern in 2025. A year later I'm in charge of the technical side of their internal system: I decide how the code is organized, review what the interns write, and created the material they learn from.",
+    "paragraph2": "I care as much about code people can understand as about a product people actually use. That's why I design in Figma before coding, and why I reorganized the backend so someone new doesn't have to guess where everything lives.",
+    "paragraph3": "I'm currently taking ITBA's Full Stack Developer program on a Santander Open Academy scholarship. I'm drawn to teams that care about how they work, not just what they ship."
   },
   "contact": {
-    "title": "Shall we work together?",
-    "description": "Whether you're looking to add a developer to your team or have a project in mind, send me a message and I'll get back to you shortly.",
+    "title": "Got something in mind?",
+    "description": "Whether you're looking to add someone to your team or have a project, write to me. WhatsApp is the fastest way.",
     "whatsapp": "Message me on WhatsApp",
     "email": "Send an email",
     "cv": "Download resume",

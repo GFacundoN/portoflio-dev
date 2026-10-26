@@ -114,7 +114,7 @@ export default function Hero({ onOpenCv }) {
             alt="Facundo Gandolfo"
             width="900"
             height="900"
-            fetchpriority="high"
+            fetchPriority="high"
             decoding="async"
             className="w-3/4 sm:w-4/5 md:w-5/6 max-w-md h-auto rounded-full shadow-lg"
           />
