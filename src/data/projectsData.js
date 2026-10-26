@@ -45,6 +45,13 @@ export const projectsData = [
       { name: "Sprite Animation", icon:JavaIcon, color: "#143D56" },
       { name: "Collision Detection", icon:JavaIcon, color: "#143D56" },
     ],
-    githubUrl: "https://github.com/GFacundoN/Super-Mario-Java"
+    githubUrl: "https://github.com/GFacundoN/Super-Mario-Java",
+    // Grabado del juego real (ver public/media)
+    featured: true,
+    video: {
+      webm: "/media/super-mario-java.webm",
+      mp4: "/media/super-mario-java.mp4",
+      poster: "/media/super-mario-java-poster.webp"
+    }
   }
 ];

@@ -62,6 +62,8 @@ export default function CvModal({ open, onClose }) {
   const [lang, setLang] = useState(siteLang);
   const [rendered, setRendered] = useState(open);
   const [shown, setShown] = useState(false);
+  // El visor de PDF del navegador es pesado: se monta recién cuando terminó la animación de entrada.
+  const [pdfReady, setPdfReady] = useState(false);
   const closeRef = useRef(null);
   const canPreview = useCanPreviewPdf();
 
@@ -73,15 +75,32 @@ export default function CvModal({ open, onClose }) {
     if (open) setLang(siteLang);
   }, [open, siteLang]);
 
+  // Precarga el CV en el idioma del sitio cuando el navegador está libre, así el modal abre al instante.
+  useEffect(() => {
+    const prefetch = () => {
+      const link = document.createElement("link");
+      link.rel = "prefetch";
+      link.href = contactData.cv[siteLang];
+      document.head.appendChild(link);
+    };
+    const id = "requestIdleCallback" in window ? window.requestIdleCallback(prefetch) : setTimeout(prefetch, 2000);
+    return () => ("cancelIdleCallback" in window ? window.cancelIdleCallback(id) : clearTimeout(id));
+  }, [siteLang]);
+
   // Entrada con ease-out, salida más corta con ease-in.
   useEffect(() => {
     if (open) {
       setRendered(true);
       const frame = requestAnimationFrame(() => requestAnimationFrame(() => setShown(true)));
-      return () => cancelAnimationFrame(frame);
+      const ready = setTimeout(() => setPdfReady(true), 260);
+      return () => {
+        cancelAnimationFrame(frame);
+        clearTimeout(ready);
+      };
     }
     setShown(false);
-    const timeout = setTimeout(() => setRendered(false), 180);
+    setPdfReady(false);
+    const timeout = setTimeout(() => setRendered(false), 160);
     return () => clearTimeout(timeout);
   }, [open]);
 
@@ -121,8 +140,8 @@ export default function CvModal({ open, onClose }) {
     >
       {/* Fondo */}
       <div
-        className={`absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity ${
-          shown ? "opacity-100 duration-300 ease-out" : "opacity-0 duration-150 ease-in"
+        className={`absolute inset-0 bg-black/70 transition-opacity ${
+          shown ? "opacity-100 duration-200 ease-out" : "opacity-0 duration-150 ease-in"
         }`}
         onClick={onClose}
         aria-hidden="true"
@@ -130,12 +149,12 @@ export default function CvModal({ open, onClose }) {
 
       {/* Panel */}
       <div
-        className={`relative w-full sm:max-w-4xl max-h-[92vh] flex flex-col rounded-t-3xl sm:rounded-2xl border backdrop-blur-xl shadow-2xl
-          bg-white/90 border-gray-200 dark:bg-[#0B0E2B]/85 dark:border-white/10 text-gray-900 dark:text-white
+        className={`relative w-full sm:max-w-4xl max-h-[92vh] flex flex-col rounded-t-3xl sm:rounded-2xl border shadow-2xl
+          bg-white border-gray-200 dark:bg-[#0B0E2B] dark:border-white/10 text-gray-900 dark:text-white
           transition-[opacity,transform] ${
             shown
-              ? "opacity-100 translate-y-0 sm:scale-100 duration-300 ease-out"
-              : "opacity-0 translate-y-6 sm:translate-y-2 sm:scale-[0.98] duration-150 ease-in"
+              ? "opacity-100 translate-y-0 duration-200 ease-out"
+              : "opacity-0 translate-y-4 duration-150 ease-in"
           }`}
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
@@ -160,12 +179,16 @@ export default function CvModal({ open, onClose }) {
         {/* Vista previa */}
         <div className="flex-1 min-h-0 p-3 sm:p-4">
           {canPreview ? (
-            <iframe
-              key={src}
-              src={`${src}#view=FitH&navpanes=0`}
-              title={t("cv.title")}
-              className="w-full h-[60vh] rounded-xl border border-gray-200 dark:border-white/10 bg-white"
-            />
+            pdfReady ? (
+              <iframe
+                key={src}
+                src={`${src}#view=FitH&navpanes=0`}
+                title={t("cv.title")}
+                className="w-full h-[60vh] rounded-xl border border-gray-200 dark:border-white/10 bg-white"
+              />
+            ) : (
+              <div className="w-full h-[60vh] rounded-xl border border-gray-200 dark:border-white/10 bg-gray-100 dark:bg-white/[0.04]" aria-hidden="true" />
+            )
           ) : (
             <div className="glass-card flex flex-col items-center text-center gap-3 px-6 py-10">
               <DocumentIcon className="w-12 h-12 text-[#00EC7A]" aria-hidden="true" />

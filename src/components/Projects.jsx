@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import ProjectCard from "./ProjectCard";
+import ProjectFeature from "./ProjectFeature";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 import { projectsData } from "../data/projectsData";
@@ -13,7 +14,9 @@ export default function Projects() {
     ...project,
     title: projectsTranslations[index]?.title || "",
     description: projectsTranslations[index]?.description || "",
-    badge: projectsTranslations[index]?.badge
+    badge: projectsTranslations[index]?.badge,
+    detail: projectsTranslations[index]?.detail,
+    videoLabel: projectsTranslations[index]?.videoLabel
   }));
 
   return (
@@ -36,8 +39,8 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12">
           {translatedProjects.map((project, index) => (
-            <Reveal key={project.id} delay={index * 50} className="rule">
-              <ProjectCard project={project} />
+            <Reveal key={project.id} delay={index * 50} className={`rule ${project.featured ? "lg:col-span-2" : ""}`}>
+              {project.featured ? <ProjectFeature project={project} /> : <ProjectCard project={project} />}
             </Reveal>
           ))}
         </div>

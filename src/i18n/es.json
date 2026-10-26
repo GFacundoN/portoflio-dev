@@ -173,7 +173,9 @@
       },
       {
         "title": "Super Mario Java",
-        "description": "Primer nivel del juego Super Mario Bros desarrollado por Nintendo en los 80', pero hecho en Java."
+        "description": "Primer nivel del juego Super Mario Bros desarrollado por Nintendo en los 80', pero hecho en Java.",
+        "detail": "Recreé el nivel 1-1 completo con Java, Swing y AWT: física con gravedad y colisiones, tres estados de Mario, enemigos, power-ups, bolas de fuego y música. El video es el juego real, grabado cuadro por cuadro.",
+        "videoLabel": "Gameplay de Super Mario Java: inicio del nivel 1-1"
       }
     ]
   },
