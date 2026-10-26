@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
+import TrophyIcon from "../assets/icons/trophy.svg?react";
 import Reveal from "./Reveal";
 import LinkedInIcon from "../assets/icons/linkedin.svg?react";
 import ExternalIcon from "../assets/icons/external.svg?react";
@@ -15,7 +16,7 @@ export default function Achievements() {
   return (
     <section id="logros" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
       <div className="max-w-[1300px] mx-auto">
-        <SectionHeader title={t("achievements.title")} description={t("achievements.description")} />
+        <SectionHeader icon={TrophyIcon} title={t("achievements.title")} description={t("achievements.description")} />
 
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-10 lg:gap-16 items-start">
           {/* La publicación de Ekoparty es un objeto (un post), por eso sí va en tarjeta */}

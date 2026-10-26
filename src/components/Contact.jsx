@@ -15,7 +15,10 @@ export default function Contact({ onOpenCv }) {
         <Reveal>
           <div className="rule pt-12 md:pt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 lg:items-end">
             <div className="flex flex-col gap-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">{t("contact.title")}</h2>
+              <div className="flex items-center gap-3">
+                <ContactIcon className="w-8 h-8 sm:w-10 sm:h-10 shrink-0" aria-hidden="true" />
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">{t("contact.title")}</h2>
+              </div>
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
                 {t("contact.description")}
               </p>

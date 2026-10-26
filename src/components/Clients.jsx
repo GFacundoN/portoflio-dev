@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
+import ClientsIcon from "../assets/icons/clients.svg?react";
 import Reveal from "./Reveal";
 import StarIcon from "../assets/icons/star.svg?react";
 import { clientsData, testimonialsData } from "../data/clientsData";
@@ -102,7 +103,7 @@ export default function Clients() {
   return (
     <section id="clientes" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
       <div className="max-w-[1300px] mx-auto">
-        <SectionHeader title={t("clients.title")} description={t("clients.description")} />
+        <SectionHeader icon={ClientsIcon} title={t("clients.title")} description={t("clients.description")} />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {clientsData.map((data, index) => (

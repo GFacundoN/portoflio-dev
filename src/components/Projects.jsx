@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import ProjectCard from "./ProjectCard";
 import ProjectFeature from "./ProjectFeature";
 import SectionHeader from "./SectionHeader";
+import ProjectsIcon from "../assets/icons/projects.svg?react";
 import Reveal from "./Reveal";
 import { projectsData } from "../data/projectsData";
 
@@ -23,6 +24,7 @@ export default function Projects() {
     <section id="proyectos" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
       <div className="max-w-[1300px] mx-auto">
         <SectionHeader
+          icon={ProjectsIcon}
           title={t("nav.projects")}
           description={t("projects.description")}
           aside={

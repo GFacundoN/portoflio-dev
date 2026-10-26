@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Reveal from "./Reveal";
 import WhatsAppIcon from "../assets/icons/whatsapp.svg?react";
+import ServicesIcon from "../assets/icons/services.svg?react";
 import { whatsappUrl } from "../data/contactData";
 import { track } from "../utils/track";
 
@@ -13,7 +14,10 @@ export default function Services() {
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 lg:gap-20">
         {/* Columna izquierda: queda fija mientras se recorre la lista */}
         <Reveal className="lg:sticky lg:top-28 self-start flex flex-col gap-4">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">{t("services.title")}</h2>
+          <div className="flex items-center gap-3">
+            <ServicesIcon className="w-8 h-8 sm:w-10 sm:h-10 shrink-0" aria-hidden="true" />
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">{t("services.title")}</h2>
+          </div>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-md">
             {t("services.description")}
           </p>

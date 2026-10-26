@@ -1,47 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageIcon from "../assets/icons/languages.svg?react";
 import MonitorIcon from "../assets/icons/themes.svg?react";
 import DocumentIcon from "../assets/icons/document.svg?react";
 
-
 const themes = ["light", "dark", "???"];
 const randomThemes = ["light", "dark"];
+
+const navItems = [
+  { name: "services", href: "#servicios", section: "servicios" },
+  { name: "experience", href: "#experiencia", section: "experiencia" },
+  { name: "clients", href: "#clientes", section: "clientes" },
+  { name: "projects", href: "#proyectos", section: "proyectos" },
+  { name: "education", href: "#educacion", section: "educacion" },
+  { name: "about", href: "#sobremi", section: "sobremi" },
+  { name: "contact", href: "#contacto", section: "contacto" },
+];
+
+const iconButton =
+  "w-9 h-9 flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.07] transition-colors duration-200";
 
 export default function Navbar({ setTheme, onOpenCv }) {
   const { t, i18n } = useTranslation();
   const [current, setCurrent] = useState("");
+  const [hovered, setHovered] = useState(null);
   const [showThemes, setShowThemes] = useState(false);
-  const [navVisible, setNavVisible] = useState(false); // Estado para controlar la aparición
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  const navItems = [
-    { name: "services", href: "#servicios", section: "servicios" },
-    { name: "experience", href: "#experiencia", section: "experiencia" },
-    { name: "clients", href: "#clientes", section: "clientes" },
-    { name: "projects", href: "#proyectos", section: "proyectos" },
-    { name: "education", href: "#educacion", section: "educacion" },
-    { name: "about", href: "#sobremi", section: "sobremi" },
-    { name: "contact", href: "#contacto", section: "contacto" },
-  ];
-
-  // Ref y ancho para animación de width
-  const measureRef = useRef(null);
-  const [width, setWidth] = useState();
-
-  useEffect(() => {
-    if (measureRef.current) {
-      setWidth(measureRef.current.offsetWidth);
-    }
-  }, [i18n.language, showThemes, current]);
-
-  // Detectar tamaño de pantalla
-  useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
-  }, []);
+  const [navVisible, setNavVisible] = useState(false);
+  const linksRef = useRef(null);
+  const [indicator, setIndicator] = useState({ x: 0, w: 0, visible: false });
 
   // Scroll spy: una línea imaginaria a un tercio de la pantalla marca la sección activa.
   // IntersectionObserver evita leer el layout en cada evento de scroll.
@@ -69,12 +55,20 @@ export default function Navbar({ setTheme, onOpenCv }) {
       observer.disconnect();
       window.removeEventListener("scroll", onTop);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Activar animación de entrada al cargar
+  // La pastilla "fluye" hasta el link bajo el mouse; si no hay hover, marca la sección activa.
+  const target = hovered ?? current;
+  useLayoutEffect(() => {
+    const el = linksRef.current?.querySelector(`[data-nav="${target}"]`);
+    setIndicator((prev) =>
+      el && el.offsetWidth ? { x: el.offsetLeft, w: el.offsetWidth, visible: true } : { ...prev, visible: false }
+    );
+  }, [target, i18n.language]);
+
+  // Entrada al cargar
   useEffect(() => {
-    const timeout = setTimeout(() => setNavVisible(true), 100); // pequeño delay
+    const timeout = setTimeout(() => setNavVisible(true), 100);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -96,92 +90,83 @@ export default function Navbar({ setTheme, onOpenCv }) {
 
   return (
     <nav className="w-full flex z-30 justify-end lg:justify-center items-center p-4 fixed">
-      {/* Invisible measure block */}
+      {/* Barra obsidiana: superficie oscura translúcida con un brillo fino en el borde superior */}
       <div
-        ref={measureRef}
-        className="rounded-full px-4 py-1 flex items-center gap-4 backdrop-blur-md border bg-[#1F2937] border-white/10 bg-opacity-90 font-bold text-sm opacity-0 pointer-events-none"
-        style={{ position: "fixed", left: -9999, top: 0, zIndex: -1 }}
-        aria-hidden="true"
-      >
-        {navItems.map((item) => (
-          <a
-            key={item.name}
-            className={`transition-colors duration-200 ${
-              current === item.name ? "text-white" : "text-gray-400"
-            }`}
-          >
-            {t(`nav.${item.name}`)}
-          </a>
-        ))}
-        <span className="flex items-center gap-1.5 px-3 py-0.5 border"><DocumentIcon className="w-4 h-4" />{t("nav.cv")}</span>
-        <LanguageIcon className="w-5 h-5" />
-        <MonitorIcon className="w-5 h-5 mt-1" />
-      </div>
-
-      {/* Navbar visible con animación */}
-      <div
-        className={`rounded-full px-3 sm:px-4 py-1.5 sm:py-1 flex items-center gap-2 sm:gap-4 backdrop-blur-md border font-bold text-xs sm:text-sm transition-all duration-500 ease-out transform bg-white/90 dark:bg-[#1F2937]/90 border-gray-300/50 dark:border-white/10 text-gray-900 dark:text-white ${
-          navVisible
-            ? "opacity-100 translate-y-0 scale-100"
-            : "opacity-0 -translate-y-4 scale-95"
+        className={`obsidian-bar relative rounded-full p-1 flex items-center gap-1 text-sm font-semibold transition-[opacity,transform] duration-500 ease-out ${
+          navVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
         }`}
-        style={{ width: isDesktop ? width : 'auto' }}
       >
-        {navItems.map((item) => (
-          <a
-            key={item.name}
-            href={item.href}
-            className={`hidden lg:block whitespace-nowrap transition-colors duration-500 ${
-              current === item.name ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
-            }`}
-          >
-            {t(`nav.${item.name}`)}
-          </a>
-        ))}
+        {/* Links con indicador que fluye */}
+        <div ref={linksRef} className="relative hidden lg:flex items-center" onMouseLeave={() => setHovered(null)}>
+          <span
+            aria-hidden="true"
+            className="obsidian-pill absolute top-0 bottom-0 left-0 rounded-full"
+            style={{
+              width: indicator.w,
+              transform: `translateX(${indicator.x}px)`,
+              opacity: indicator.visible ? 1 : 0,
+            }}
+          />
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              data-nav={item.name}
+              onMouseEnter={() => setHovered(item.name)}
+              onFocus={() => setHovered(item.name)}
+              onBlur={() => setHovered(null)}
+              aria-current={current === item.name ? "true" : undefined}
+              className={`relative z-10 px-3.5 py-2 rounded-full whitespace-nowrap transition-colors duration-300 ${
+                target === item.name ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-400"
+              }`}
+            >
+              {t(`nav.${item.name}`)}
+            </a>
+          ))}
+        </div>
+
+        <span className="hidden lg:block w-px h-5 mx-1 bg-black/10 dark:bg-white/10" aria-hidden="true" />
 
         {/* CV: abre el modal de vista previa */}
         <button
           onClick={onOpenCv}
-          className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-0.5 border border-gray-300 dark:border-white/15 text-gray-900 dark:text-white hover:border-gray-500 dark:hover:border-white/40 transition-colors duration-300"
+          className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-gray-900 dark:text-white bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.09] dark:hover:bg-white/[0.13] transition-colors duration-200"
         >
           <DocumentIcon className="w-4 h-4" aria-hidden="true" />
           {t("nav.cv")}
         </button>
 
-        {/* Botón idioma */}
-        <button
-          className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
-          title={t("toggleLanguage")}
-          onClick={toggleLanguage}
-        >
-          <LanguageIcon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-900 dark:text-gray-300" />
+        <button className={iconButton} title={t("toggleLanguage")} aria-label={t("toggleLanguage")} onClick={toggleLanguage}>
+          <LanguageIcon className="w-[18px] h-[18px]" />
         </button>
 
-        {/* Botón tema con dropdown animado */}
+        {/* Tema con menú desplegable */}
         <div className="relative">
           <button
             onClick={() => setShowThemes(!showThemes)}
-            className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+            className={iconButton}
             title={t("theme.switch")}
+            aria-label={t("theme.switch")}
+            aria-expanded={showThemes}
           >
-            <MonitorIcon className="w-4 h-4 sm:w-5 sm:h-5 mt-1 text-gray-900 dark:text-gray-300" />
+            <MonitorIcon className="w-[18px] h-[18px]" />
           </button>
 
           <div
-            className={`absolute right-0 mt-2 text-sm font-semibold shadow-lg rounded-lg py-2 px-4 space-y-1 z-50 transform transition-all duration-300 ease-in-out bg-white dark:bg-[#1F2937] bg-opacity-90 dark:bg-opacity-90 text-gray-900 dark:text-white ${
+            className={`obsidian-bar absolute right-0 mt-3 min-w-[9rem] rounded-2xl p-1 text-sm font-semibold z-50 transition-[opacity,transform] duration-200 ${
               showThemes
-                ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
-                : "opacity-0 -translate-y-2 scale-95 pointer-events-none"
+                ? "opacity-100 translate-y-0 pointer-events-auto ease-out"
+                : "opacity-0 -translate-y-1 pointer-events-none ease-in"
             }`}
           >
             {themes.map((tKey) => (
-              <div
+              <button
                 key={tKey}
                 onClick={() => changeTheme(tKey)}
-                className="text-gray-900 dark:text-white py-1 px-3 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors text-xs font-bold cursor-pointer"
+                className="block w-full text-left px-3 py-2 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors"
               >
                 {tKey === "???" ? t("theme.random") : t(`theme.${tKey}`)}
-              </div>
+              </button>
             ))}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
+import ExperienceIcon from "../assets/icons/experience.svg?react";
 import Reveal from "./Reveal";
 import { contactData } from "../data/contactData";
 
@@ -14,6 +15,7 @@ export default function Experience() {
     <section id="experiencia" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
       <div className="max-w-[1300px] mx-auto">
         <SectionHeader
+          icon={ExperienceIcon}
           title={t("nav.experience")}
           aside={
             <a href={contactData.linkedin} target="_blank" rel="noopener noreferrer" className={textLink}>

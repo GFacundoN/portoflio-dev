@@ -85,12 +85,10 @@ export default function Hero({ onOpenCv }) {
               href={contactData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="animated-border-gradient"
+              className="availability-badge inline-flex items-center gap-2.5 px-4 py-2 rounded-full font-semibold text-sm text-gray-900 dark:text-white"
             >
-              <div className="px-4 py-2 rounded-full font-bold text-sm relative z-10 text-gray-900 dark:text-white flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#00EC7A]" aria-hidden="true" />
-                {t("hero.available")}
-              </div>
+              <span className="availability-dot" aria-hidden="true" />
+              {t("hero.available")}
             </a>
           </div>
 

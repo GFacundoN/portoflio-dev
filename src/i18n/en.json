@@ -25,9 +25,18 @@
     "cv": "View resume",
     "available": "Open to work",
     "stats": [
-      { "value": "2", "label": "years of experience" },
-      { "value": "6+", "label": "clients served" },
-      { "value": "4.9★", "label": "average on Fiverr" }
+      {
+        "value": "2",
+        "label": "years of experience"
+      },
+      {
+        "value": "6+",
+        "label": "clients served"
+      },
+      {
+        "value": "4.9★",
+        "label": "average on Fiverr"
+      }
     ]
   },
   "services": {
@@ -192,30 +201,72 @@
         "period": "August 2026 - In progress",
         "badge": "Santander Open Academy scholarship · 1 of 400 selected",
         "description": "Intensive full-stack program focused on the MERN stack (MongoDB, Express, React, Node.js), Next.js, databases, web performance and agile methodologies.",
-        "skills": ["MERN", "Next.js", "Node.js", "SQL", "Agile"]
+        "skills": [
+          "MERN",
+          "Next.js",
+          "Node.js",
+          "SQL",
+          "Agile"
+        ]
       },
       {
         "title": "Meta Front-End Developer Professional Certificate",
         "institution": "Meta",
         "period": "2024",
-        "description": "9 courses focused on building modern, accessible and responsive interfaces with HTML, CSS, JavaScript and React, along with design and user experience best practices.",
-        "skills": ["React.js", "UX/UI Design", "JavaScript", "Git", "+2"]
+        "description": "Meta's professional certificate on Coursera: 9 courses ranging from web fundamentals to advanced React, UX/UI design and a graded capstone project, plus technical interview preparation.",
+        "skills": [
+          "React",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "Git",
+          "UX/UI",
+          "Figma",
+          "Wireframing",
+          "Unit testing",
+          "APIs",
+          "Unix shell"
+        ],
+        "courses": [
+          "Introduction to Front-End Development",
+          "Programming with JavaScript",
+          "Version Control",
+          "HTML and CSS in depth",
+          "React Basics",
+          "Advanced React",
+          "Principles of UX/UI Design",
+          "Front-End Developer Capstone",
+          "Coding Interview Preparation"
+        ]
       },
       {
         "title": "Google AI Essentials",
         "institution": "Google",
         "period": "2024",
         "description": "Artificial intelligence fundamentals, responsible AI use, generative models and practical applications to improve productivity and decision-making.",
-        "skills": ["Prompt Engineering", "Problem Solving", "Critical Thinking", "+3"]
+        "skills": [
+          "Prompt Engineering",
+          "Problem Solving",
+          "Critical Thinking",
+          "+3"
+        ]
       },
       {
         "title": "Programming Technician",
         "institution": "EEST N°7 José Hernández",
         "period": "2019 - 2025",
         "description": "Technical degree in software development, computational logic, data structures and project management, with hands-on projects and technology competitions.",
-        "skills": ["JavaScript", "MySQL", "Java", "Project Management", "+5"]
+        "skills": [
+          "JavaScript",
+          "MySQL",
+          "Java",
+          "Project Management",
+          "+5"
+        ]
       }
-    ]
+    ],
+    "coursesTitle": "The 9 courses",
+    "skillsTitle": "Skills"
   },
   "achievements": {
     "title": "Achievements & talks",
@@ -229,14 +280,14 @@
     },
     "items": [
       {
-        "year": "2025",
-        "title": "National ETP Olympics 2025",
-        "description": "\"E-Scapadas\" was selected among the best projects in Buenos Aires."
-      },
-      {
         "year": "2026",
         "title": "Santander Open Academy scholarship",
         "description": "One of 400 selected for ITBA's Full Stack Developer program."
+      },
+      {
+        "year": "2025",
+        "title": "National ETP Olympics 2025",
+        "description": "\"E-Scapadas\" was selected among the best projects in Buenos Aires."
       },
       {
         "year": "2025",
@@ -265,8 +316,14 @@
     },
     "languagesTitle": "Languages",
     "languages": [
-      { "name": "Spanish", "level": "Native" },
-      { "name": "English", "level": "B2 · Upper-intermediate" }
+      {
+        "name": "Spanish",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "B2 · Upper-intermediate"
+      }
     ]
   },
   "aboutMe": {

@@ -25,9 +25,18 @@
     "cv": "Ver CV",
     "available": "Disponible para trabajar",
     "stats": [
-      { "value": "2", "label": "años de experiencia" },
-      { "value": "6+", "label": "clientes atendidos" },
-      { "value": "4.9★", "label": "promedio en Fiverr" }
+      {
+        "value": "2",
+        "label": "años de experiencia"
+      },
+      {
+        "value": "6+",
+        "label": "clientes atendidos"
+      },
+      {
+        "value": "4.9★",
+        "label": "promedio en Fiverr"
+      }
     ]
   },
   "services": {
@@ -192,30 +201,72 @@
         "period": "Agosto 2026 - En curso",
         "badge": "Beca Santander Open Academy · 1 de 400 seleccionados",
         "description": "Programa intensivo de desarrollo full-stack con foco en el stack MERN (MongoDB, Express, React, Node.js), Next.js, bases de datos, performance web y metodologías ágiles.",
-        "skills": ["MERN", "Next.js", "Node.js", "SQL", "Agile"]
+        "skills": [
+          "MERN",
+          "Next.js",
+          "Node.js",
+          "SQL",
+          "Agile"
+        ]
       },
       {
         "title": "Certificado Profesional de Desarrollador Front-End de Meta",
         "institution": "Meta",
         "period": "2024",
-        "description": "9 cursos orientados al desarrollo de interfaces modernas, accesibles y responsivas con HTML, CSS, JavaScript y React, junto con buenas prácticas de diseño y experiencia de usuario.",
-        "skills": ["React.js", "UX/UI Design", "JavaScript", "Git", "+2"]
+        "description": "Certificación profesional de Meta en Coursera: 9 cursos que van desde los fundamentos de la web hasta React avanzado, diseño UX/UI y un proyecto final evaluado, más preparación para entrevistas técnicas.",
+        "skills": [
+          "React",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "Git",
+          "UX/UI",
+          "Figma",
+          "Wireframing",
+          "Unit testing",
+          "APIs",
+          "Unix shell"
+        ],
+        "courses": [
+          "Introducción al desarrollo front-end",
+          "Programación con JavaScript",
+          "Control de versiones",
+          "HTML y CSS en profundidad",
+          "Fundamentos de React",
+          "React avanzado",
+          "Principios de diseño UX/UI",
+          "Proyecto final de desarrollador front-end",
+          "Preparación para entrevistas de programación"
+        ]
       },
       {
         "title": "Fundamentos de IA de Google",
         "institution": "Google",
         "period": "2024",
         "description": "Fundamentos de inteligencia artificial, uso responsable de IA, modelos generativos y aplicaciones prácticas para mejorar la productividad y la toma de decisiones.",
-        "skills": ["Prompt Engineering", "Resolución de Problemas", "Pensamiento Crítico", "+3"]
+        "skills": [
+          "Prompt Engineering",
+          "Resolución de Problemas",
+          "Pensamiento Crítico",
+          "+3"
+        ]
       },
       {
         "title": "Técnico en Programación",
         "institution": "EEST N°7 José Hernández",
         "period": "2019 - 2025",
         "description": "Formación técnica en desarrollo de software, lógica computacional, estructuras de datos y gestión de proyectos, con proyectos prácticos y competencias tecnológicas.",
-        "skills": ["JavaScript", "MySQL", "Java", "Gestión de Proyectos", "+5"]
+        "skills": [
+          "JavaScript",
+          "MySQL",
+          "Java",
+          "Gestión de Proyectos",
+          "+5"
+        ]
       }
-    ]
+    ],
+    "coursesTitle": "Los 9 cursos",
+    "skillsTitle": "Habilidades"
   },
   "achievements": {
     "title": "Logros y charlas",
@@ -229,14 +280,14 @@
     },
     "items": [
       {
-        "year": "2025",
-        "title": "Olimpiadas Nacionales ETP 2025",
-        "description": "\"E-Scapadas\" fue seleccionado entre los mejores proyectos de Buenos Aires."
-      },
-      {
         "year": "2026",
         "title": "Beca Santander Open Academy",
         "description": "Uno de los 400 seleccionados para el Full Stack Developer del ITBA."
+      },
+      {
+        "year": "2025",
+        "title": "Olimpiadas Nacionales ETP 2025",
+        "description": "\"E-Scapadas\" fue seleccionado entre los mejores proyectos de Buenos Aires."
       },
       {
         "year": "2025",
@@ -265,8 +316,14 @@
     },
     "languagesTitle": "Idiomas",
     "languages": [
-      { "name": "Español", "level": "Nativo" },
-      { "name": "Inglés", "level": "B2 · Intermedio alto" }
+      {
+        "name": "Español",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglés",
+        "level": "B2 · Intermedio alto"
+      }
     ]
   },
   "aboutMe": {
