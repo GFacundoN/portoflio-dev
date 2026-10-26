@@ -126,9 +126,19 @@ html[data-theme="dark"] {
   }
 
   .chip {
-    @apply inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-md border
-      bg-gray-200/70 text-gray-700 border-gray-300
-      dark:bg-gray-700/40 dark:text-gray-300 dark:border-gray-600/50;
+    @apply inline-flex items-center gap-1 font-mono text-[11px] leading-none px-2 py-1.5 rounded border
+      text-gray-600 border-gray-300
+      dark:text-gray-400 dark:border-white/[0.12];
+  }
+
+  /* Metadatos (fechas, ubicaciones, numeración) */
+  .meta {
+    @apply font-mono text-xs tracking-tight text-gray-500 dark:text-gray-400;
+  }
+
+  /* Separador fino entre bloques, en lugar de tarjetas contenedoras */
+  .rule {
+    @apply border-t border-gray-300 dark:border-white/10;
   }
 
   .btn-primary {
@@ -142,6 +152,28 @@ html[data-theme="dark"] {
       px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base
       bg-white text-gray-900 border-gray-300 hover:border-gray-400
       dark:bg-[#1F2937] dark:text-white dark:border-[#5E6673] dark:hover:border-[#A8ADB3];
+  }
+}
+
+/* Captura de un sitio entregado: al hover se recorre en vertical, como si se scrolleara el proyecto */
+.case-shot {
+  position: relative;
+  overflow: hidden;
+}
+
+.case-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateY(0);
+  transition: transform 700ms cubic-bezier(0.4, 0, 1, 1);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .group:hover .case-shot img,
+  .group:focus-within .case-shot img {
+    transform: translateY(calc(-100% + var(--shot-h)));
+    transition: transform 3.5s cubic-bezier(0.45, 0, 0.55, 1);
   }
 }
 

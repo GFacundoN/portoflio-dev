@@ -1,6 +1,4 @@
 import { useTranslation } from "react-i18next";
-import EducationIcon from "../assets/icons/education.svg?react";
-import LinkedInIcon from "../assets/icons/linkedinDark.svg?react";
 import metaCertificate from "../assets/certificates/meta.webp";
 import aiEssentialsCertificate from "../assets/certificates/aiEssentials.webp";
 import tecnicoCertificate from "../assets/certificates/tecnico.webp";
@@ -34,9 +32,22 @@ export default function Education() {
   }));
 
   return (
-    <section id="educacion" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
+    <section id="educacion" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
       <div className="max-w-[1300px] mx-auto">
-        <SectionHeader icon={EducationIcon} title={t("nav.education")} description={t("education.description")} />
+        <SectionHeader
+          title={t("nav.education")}
+          description={t("education.description")}
+          aside={
+            <a
+              href="https://www.linkedin.com/in/gfacundon/details/certifications/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-semibold text-gray-900 dark:text-white underline decoration-gray-400/60 underline-offset-4 hover:decoration-current transition-colors"
+            >
+              {t("education.moreCertifications")} ↗
+            </a>
+          }
+        />
 
         {/* Grid de Certificaciones */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
@@ -46,7 +57,7 @@ export default function Education() {
               delay={index * 60}
               className="h-full"
             >
-              <div className="bg-gray-100 dark:bg-gray-800/50 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/50 hover:border-[#00EC7A]/30 transition-colors duration-200 group h-full flex flex-col">
+              <div className="glass-card overflow-hidden group h-full flex flex-col">
                 {/* Imagen del certificado con hover overlay */}
                 <div className="relative h-48 overflow-hidden">
                   {item.image ? (
@@ -58,9 +69,9 @@ export default function Education() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#00013A] via-[#0B1B5A] to-[#003B2A]">
+                    <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-[#070B24] dark:bg-white/[0.03]">
                       <span className="text-5xl font-extrabold tracking-tight text-white">ITBA</span>
-                      <span className="text-sm font-semibold text-[#00EC7A]">{t("education.inProgress")}</span>
+                      <span className="font-mono text-xs text-gray-300 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#00EC7A]" aria-hidden="true" />{t("education.inProgress")}</span>
                     </div>
                   )}
                   {/* Overlay con hover effect */}
@@ -84,10 +95,10 @@ export default function Education() {
                   <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
                     {item.institution}
                   </p>
-                  <p className="text-gray-500 text-xs mt-1 mb-6">{item.period}</p>
+                  <p className="meta mt-1.5 mb-6">{item.period}</p>
 
                   {item.badge && (
-                    <p className="self-start text-xs font-bold px-2.5 py-1 rounded-full mb-4 bg-[#00EC7A]/10 text-[#00A85A] dark:text-[#00EC7A] border border-[#00EC7A]/30">
+                    <p className="text-sm font-semibold text-gray-900 dark:text-white mb-4">
                       {item.badge}
                     </p>
                   )}
@@ -98,32 +109,15 @@ export default function Education() {
                   </p>
 
                   {/* Skills */}
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {item.skills.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="bg-gray-200 dark:bg-gray-700/50 text-gray-700 dark:text-gray-300 text-xs px-2 py-1 rounded-md border border-gray-300 dark:border-gray-600/50"
-                      >
-                        {skill}
-                      </span>
+                  <div className="flex flex-wrap gap-1.5 mt-auto">
+                    {item.skills.map((skill) => (
+                      <span key={skill} className="chip">{skill}</span>
                     ))}
                   </div>
                 </div>
               </div>
             </Reveal>
           ))}
-        </div>
-
-        {/* Botón LinkedIn */}
-        <div className="flex justify-center mt-12 md:mt-16">
-          <a
-            href="https://www.linkedin.com/in/gfacundon/details/certifications/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#E8EAEC] text-[#2D3340] font-bold px-4 py-2 rounded-xl flex items-center gap-2 text-sm hover:bg-[#dce0e3] transition-colors"
-          >
-            <LinkedInIcon className="w-5 h-5" /> {t("education.moreCertifications")}
-          </a>
         </div>
 
       </div>

@@ -34,10 +34,10 @@ export default function Hero({ onOpenCv }) {
       >
         {/* Texto */}
         <div className="flex flex-col gap-4">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-2 sm:mb-3 text-gray-900 dark:text-white">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight leading-[0.95] mb-2 sm:mb-3 text-gray-900 dark:text-white">
             {t("hero.title")}
           </h1>
-          <h2 className="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-300">
+          <h2 className="text-lg sm:text-xl font-medium text-gray-700 dark:text-gray-300">
             {t("hero.subtitle")}
           </h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -98,7 +98,7 @@ export default function Hero({ onOpenCv }) {
           <dl className="flex flex-wrap gap-x-8 gap-y-3 mt-4 pt-5 border-t border-gray-300 dark:border-white/10">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col-reverse">
-                <dt className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{stat.label}</dt>
+                <dt className="meta mt-1">{stat.label}</dt>
                 <dd className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tabular-nums leading-tight">
                   {stat.value}
                 </dd>

@@ -11,7 +11,8 @@ export default {
         'diamond-light': 'radial-gradient(ellipse at center, #E8EAFF 0%, #F5F7FF 100%)',
       },
       fontFamily: {
-        sans: ['"Onest"', 'sans-serif'], 
+        sans: ['"Onest"', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
     },
   },

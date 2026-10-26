@@ -182,7 +182,7 @@
     "viewCertificate": "View certificate",
     "viewProgram": "View program",
     "inProgress": "In progress",
-    "moreCertifications": "More certifications on LinkedIn",
+    "moreCertifications": "More certifications",
     "items": [
       {
         "title": "Full Stack Developer",
@@ -227,22 +227,27 @@
     },
     "items": [
       {
+        "year": "2025",
         "title": "National ETP Olympics 2025",
         "description": "\"E-Scapadas\" was selected among the best projects in Buenos Aires."
       },
       {
+        "year": "2026",
         "title": "Santander Open Academy scholarship",
         "description": "One of 400 selected for ITBA's Full Stack Developer program."
       },
       {
+        "year": "2025",
         "title": "Institutional distinction",
         "description": "EEST N°7, for representing the school in academic activities and technology competitions."
       },
       {
+        "year": "2025",
         "title": "Outstanding student · Coursera",
         "description": "Recognized for performance in 2025."
       },
       {
+        "year": "2025",
         "title": "Volunteer · EducationUSA Argentina",
         "description": "LL.M Fair 2025."
       }

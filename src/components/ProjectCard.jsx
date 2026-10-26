@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
-import GithubIcon from "../assets/icons/github.svg?react";
-import LinkIcon from "../assets/icons/link.svg?react";
 import TrophyIcon from "../assets/icons/trophy.svg?react";
+
+const textLink =
+  "text-sm font-semibold text-gray-900 dark:text-white underline decoration-gray-400/60 underline-offset-4 hover:decoration-current transition-colors";
 
 export default function ProjectCard({ project }) {
   const { t } = useTranslation();
@@ -9,57 +10,35 @@ export default function ProjectCard({ project }) {
   const isReactComponent = typeof ImageComponent === 'function';
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center hover:scale-[1.03] transition-transform duration-300 ease-out p-5">
-      <div className="w-full sm:w-[40%] h-40 sm:h-32 flex-shrink-0 overflow-hidden rounded-lg">
+    <div className="group flex flex-col sm:flex-row gap-4 sm:gap-6 items-start py-6">
+      <div className="w-full sm:w-[40%] h-40 sm:h-32 flex-shrink-0 overflow-hidden rounded-lg border border-gray-200 dark:border-white/[0.08]">
         {isReactComponent ? (
           <ImageComponent className="w-full h-full min-w-full min-h-full object-cover object-center" />
         ) : (
-          <img src={ImageComponent} alt={project.title} loading="lazy" className="w-full h-full min-w-full min-h-full object-cover object-center" />
+          <img src={ImageComponent} alt={project.title} loading="lazy" decoding="async" className="w-full h-full min-w-full min-h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
         )}
       </div>
       <div className="flex flex-col gap-2 w-full sm:w-[60%]">
-        <h2 className="text-xl sm:text-2xl font-bold">{project.title}</h2>
+        <h3 className="text-xl font-bold leading-snug">{project.title}</h3>
         {project.badge && (
-          <span className="self-start inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full bg-amber-400/15 text-amber-700 dark:text-amber-300 border border-amber-400/30">
+          <p className="meta flex items-center gap-1.5">
             <TrophyIcon className="w-3.5 h-3.5" aria-hidden="true" />
             {project.badge}
-          </span>
+          </p>
         )}
-        <div className="flex gap-2 flex-wrap">
-          {project.technologies.map((tech, index) => {
-            const TechIcon = tech.icon;
-            return (
-              <span
-                key={index}
-                style={{ backgroundColor: tech.color }}
-                className="text-white text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1"
-              >
-                <TechIcon className="w-4 h-4" />
-                {tech.name}
-              </span>
-            );
-          })}
+        <div className="flex gap-1.5 flex-wrap">
+          {project.technologies.map((tech) => (
+            <span key={tech.name} className="chip">{tech.name}</span>
+          ))}
         </div>
         <p className="text-gray-600 dark:text-gray-400 text-sm mt-0.5">{project.description}</p>
-        <div className="flex gap-2 sm:gap-4 flex-wrap">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 transition-colors rounded-2xl text-sm border py-2 px-3 bg-white dark:bg-[#1F2937] hover:bg-gray-100 dark:hover:bg-[#2E3845] border-gray-300 dark:border-[#2E3845] text-gray-900 dark:text-white"
-          >
-            <GithubIcon className="w-5 h-5 text-gray-900 dark:text-white" />
-            {t("projects.code")}
+        <div className="flex gap-4 flex-wrap mt-1">
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={textLink}>
+            {t("projects.code")} ↗
           </a>
           {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 transition-colors rounded-2xl text-sm border py-2 px-3 bg-white dark:bg-[#1F2937] hover:bg-gray-100 dark:hover:bg-[#2E3845] border-gray-300 dark:border-[#2E3845] text-gray-900 dark:text-white"
-            >
-              <LinkIcon className="w-5 h-5 text-gray-900 dark:text-white" />
-              {t("projects.preview")}
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className={textLink}>
+              {t("projects.preview")} ↗
             </a>
           )}
         </div>

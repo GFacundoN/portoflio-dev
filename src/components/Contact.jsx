@@ -10,16 +10,16 @@ export default function Contact({ onOpenCv }) {
   const { t } = useTranslation();
 
   return (
-    <section id="contacto" className="px-4 sm:px-6 md:px-12 lg:px-20 pt-12 sm:pt-16 md:pt-20 pb-8 text-gray-900 dark:text-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="contacto" className="px-4 sm:px-6 md:px-12 lg:px-20 pt-16 sm:pt-20 md:pt-28 pb-8 text-gray-900 dark:text-white">
+      <div className="max-w-[1300px] mx-auto">
         <Reveal>
-          <div className="glass-card px-6 py-10 sm:px-10 sm:py-14 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 lg:items-end">
+          <div className="rule pt-12 md:pt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 lg:items-end">
             <div className="flex flex-col gap-4">
-              <h2 className="text-3xl sm:text-5xl font-extrabold leading-tight">{t("contact.title")}</h2>
+              <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[0.95]">{t("contact.title")}</h2>
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
                 {t("contact.description")}
               </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400 break-all">{contactData.email}</p>
+              <p className="meta break-all">{contactData.email}</p>
             </div>
             <div className="flex flex-wrap lg:flex-col lg:items-stretch gap-2 sm:gap-3">
               <a

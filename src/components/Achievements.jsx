@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
-import TrophyIcon from "../assets/icons/trophy.svg?react";
 import LinkedInIcon from "../assets/icons/linkedin.svg?react";
 import ExternalIcon from "../assets/icons/external.svg?react";
 import profilePic from "../assets/pfp.webp";
@@ -14,12 +13,12 @@ export default function Achievements() {
   const items = t("achievements.items", { returnObjects: true });
 
   return (
-    <section id="logros" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
+    <section id="logros" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
       <div className="max-w-[1300px] mx-auto">
-        <SectionHeader icon={TrophyIcon} title={t("achievements.title")} description={t("achievements.description")} />
+        <SectionHeader title={t("achievements.title")} description={t("achievements.description")} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-5">
-          {/* Preview de la publicación de Ekoparty, con el look de una tarjeta de LinkedIn pero en glass */}
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-10 lg:gap-16 items-start">
+          {/* La publicación de Ekoparty es un objeto (un post), por eso sí va en tarjeta */}
           <Reveal>
             <a
               href={EKOPARTY_POST_URL}
@@ -42,12 +41,12 @@ export default function Achievements() {
               </div>
 
               <div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Ekoparty 2024 · Futuro Hacker</p>
+                <p className="meta">Ekoparty 2024 · Futuro Hacker</p>
                 <p className="text-xl sm:text-2xl font-extrabold mt-1 leading-snug">“Tokengrabber, el terror de la Generación Z”</p>
               </div>
 
               <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{t("achievements.post.text")}</p>
-              <p className="text-sm text-[#4885FF]">{t("achievements.post.tags")}</p>
+              <p className="meta">{t("achievements.post.tags")}</p>
 
               <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white group-hover:underline">
                 {t("achievements.post.cta")} <ExternalIcon className="w-4 h-4" aria-hidden="true" />
@@ -56,10 +55,15 @@ export default function Achievements() {
           </Reveal>
 
           {/* Resto de logros */}
-          <ul className="flex flex-col gap-3">
+          <ul className="rule">
             {items.map((item, index) => (
-              <Reveal as="li" key={item.title} delay={index * 60} className="glass-card px-5 py-4 flex gap-4 items-start">
-                <span className="mt-1 w-2 h-2 rounded-full bg-[#00EC7A] shrink-0" aria-hidden="true" />
+              <Reveal
+                as="li"
+                key={item.title}
+                delay={index * 50}
+                className="grid grid-cols-[3.5rem_1fr] gap-x-2 py-5 border-b border-gray-300 dark:border-white/10"
+              >
+                <span className="meta pt-1 tabular-nums">{item.year}</span>
                 <div>
                   <p className="font-bold leading-snug">{item.title}</p>
                   <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>

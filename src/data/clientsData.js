@@ -1,18 +1,23 @@
 import ProjectVerduleria from "../assets/projects/verduleria.webp";
+import ShotAndestex from "../assets/projects/andestex.webp";
+import ShotYpf from "../assets/projects/ypf-uniformes.webp";
 
 // Los textos (necesidad, solución, resultado) viven en i18n: clients.items, en el mismo orden.
 export const clientsData = [
   {
     id: "modica",
+    featured: true,
     technologies: ["React", "TypeScript", "Spring Boot", "MySQL", "SheetJS", "Apache POI"],
   },
   {
     id: "andestex-landing",
+    shot: ShotAndestex,
     technologies: ["WordPress", "Elementor", "Figma"],
     liveUrl: "https://andestex.com.ar",
   },
   {
     id: "andestex-store",
+    shot: ShotYpf,
     technologies: ["Astro", "E-commerce", "Figma"],
     liveUrl: "https://tienda.ypfuniformes.com.ar",
   },

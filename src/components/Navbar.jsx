@@ -107,7 +107,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
           <a
             key={item.name}
             className={`transition-colors duration-200 ${
-              current === item.name ? "text-[#4885FF]" : "text-gray-300 hover:text-[#4885FF]"
+              current === item.name ? "text-white" : "text-gray-400"
             }`}
           >
             {t(`nav.${item.name}`)}
@@ -132,7 +132,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
             key={item.name}
             href={item.href}
             className={`hidden lg:block whitespace-nowrap transition-colors duration-500 ${
-              current === item.name ? "text-[#4885FF]" : "text-gray-700 dark:text-gray-300 hover:text-[#4885FF]"
+              current === item.name ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             }`}
           >
             {t(`nav.${item.name}`)}
@@ -142,7 +142,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
         {/* CV: abre el modal de vista previa */}
         <button
           onClick={onOpenCv}
-          className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-0.5 border border-gray-300 dark:border-white/15 text-gray-900 dark:text-white hover:border-[#4885FF] hover:text-[#4885FF] transition-colors duration-300"
+          className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-0.5 border border-gray-300 dark:border-white/15 text-gray-900 dark:text-white hover:border-gray-500 dark:hover:border-white/40 transition-colors duration-300"
         >
           <DocumentIcon className="w-4 h-4" aria-hidden="true" />
           {t("nav.cv")}
@@ -150,7 +150,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
 
         {/* Botón idioma */}
         <button
-          className="text-gray-700 dark:text-gray-300 hover:text-[#4885FF]"
+          className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
           title={t("toggleLanguage")}
           onClick={toggleLanguage}
         >
@@ -161,7 +161,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
         <div className="relative">
           <button
             onClick={() => setShowThemes(!showThemes)}
-            className="text-gray-700 dark:text-gray-300 hover:text-[#4885FF]"
+            className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             title={t("theme.switch")}
           >
             <MonitorIcon className="w-4 h-4 sm:w-5 sm:h-5 mt-1 text-gray-900 dark:text-gray-300" />
