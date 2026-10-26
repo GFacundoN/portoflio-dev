@@ -277,7 +277,7 @@ html[data-theme="dark"] {
   height: 70vmax;
   border-radius: 9999px;
   will-change: transform;
-  animation: glowDrift 32s ease-in-out infinite alternate;
+  animation: glowDrift 18s ease-in-out infinite alternate;
 }
 
 .bg-glow__blob--a {
@@ -290,8 +290,9 @@ html[data-theme="dark"] {
   bottom: -35vmax;
   right: -25vmax;
   background: radial-gradient(closest-side, rgba(72, 133, 255, 0.14), transparent);
-  animation-duration: 40s;
-  animation-delay: -12s;
+  animation-name: glowDriftB;
+  animation-duration: 22s;
+  animation-delay: -8s;
 }
 
 .bg-glow__blob--c {
@@ -300,27 +301,42 @@ html[data-theme="dark"] {
   width: 50vmax;
   height: 50vmax;
   background: radial-gradient(closest-side, rgba(0, 236, 122, 0.05), transparent);
-  animation-duration: 46s;
-  animation-delay: -20s;
+  animation-name: glowDriftC;
+  animation-duration: 26s;
+  animation-delay: -14s;
 }
 
 .dark .bg-glow__blob--a {
-  background: radial-gradient(closest-side, rgba(79, 70, 229, 0.28), transparent);
+  background: radial-gradient(closest-side, rgba(55, 48, 163, 0.38), transparent);
 }
 
 .dark .bg-glow__blob--b {
-  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.22), transparent);
+  background: radial-gradient(closest-side, rgba(23, 37, 120, 0.5), transparent);
 }
 
 .dark .bg-glow__blob--c {
   background: radial-gradient(closest-side, rgba(0, 236, 122, 0.07), transparent);
 }
 
+/* Recorridos amplios y distintos para cada mancha: el movimiento se percibe sin ser brusco */
 @keyframes glowDrift {
   0% { transform: translate3d(0, 0, 0) scale(1); }
-  33% { transform: translate3d(8vw, 6vh, 0) scale(1.08); }
-  66% { transform: translate3d(-6vw, 10vh, 0) scale(0.95); }
-  100% { transform: translate3d(4vw, -6vh, 0) scale(1.05); }
+  33% { transform: translate3d(28vw, 18vh, 0) scale(1.2); }
+  66% { transform: translate3d(10vw, 40vh, 0) scale(0.9); }
+  100% { transform: translate3d(40vw, 8vh, 0) scale(1.1); }
+}
+
+@keyframes glowDriftB {
+  0% { transform: translate3d(0, 0, 0) scale(1.05); }
+  33% { transform: translate3d(-30vw, -20vh, 0) scale(0.9); }
+  66% { transform: translate3d(-12vw, -42vh, 0) scale(1.2); }
+  100% { transform: translate3d(-38vw, -10vh, 0) scale(1); }
+}
+
+@keyframes glowDriftC {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-25vw, 25vh, 0) scale(1.25); }
+  100% { transform: translate3d(15vw, -20vh, 0) scale(0.85); }
 }
 
 @media (prefers-reduced-motion: reduce) {
