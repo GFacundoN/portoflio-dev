@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
 import ClientsIcon from "../assets/icons/clients.svg?react";
@@ -102,6 +103,27 @@ function ReviewAuthor({ review }) {
   );
 }
 
+// Captura alta de un sitio entregado. En desktop se recorre con el hover;
+// en pantallas táctiles (sin hover) se recorre al tocarla, y otro toque la devuelve arriba.
+function CaseShot({ data }) {
+  const { t } = useTranslation();
+  const [active, setActive] = useState(false);
+
+  return (
+    <button
+      type="button"
+      onClick={() => setActive((value) => !value)}
+      aria-pressed={active}
+      aria-label={t("clients.tapToScroll")}
+      className={`case-shot block w-full h-60 text-left border-b border-gray-200 dark:border-white/[0.08] ${active ? "is-active" : ""}`}
+      style={{ "--shot-h": "15rem" }}
+    >
+      <img src={data.shot} alt={t(`alts.${data.alt}`)} loading="lazy" decoding="async" width="720" height="1462" />
+      <span className="case-shot__hint">{t("clients.tapToScroll")}</span>
+    </button>
+  );
+}
+
 function CaseCard({ data, text, index }) {
   const { t } = useTranslation();
 
@@ -109,9 +131,7 @@ function CaseCard({ data, text, index }) {
   if (data.shot) {
     return (
       <Reveal delay={index * 60} className="glass-card group overflow-hidden flex flex-col">
-        <div className="case-shot h-60 border-b border-gray-200 dark:border-white/[0.08]" style={{ "--shot-h": "15rem" }}>
-          <img src={data.shot} alt={t(`alts.${data.alt}`)} loading="lazy" decoding="async" width="720" height="1462" />
-        </div>
+        <CaseShot data={data} />
         <div className="p-6 flex flex-col flex-1">
           <CaseBody data={data} text={text} />
         </div>

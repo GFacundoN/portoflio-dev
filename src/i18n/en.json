@@ -158,7 +158,8 @@
       "subtitle": "Verified Fiverr reviews",
       "translatedFromEn": "translated from English",
       "translatedFromEs": "translated from Spanish"
-    }
+    },
+    "tapToScroll": "Tap to scroll through the site"
   },
   "projects": {
     "description": "School and personal projects. This is where I learned most of what I use today.",
@@ -181,7 +182,8 @@
         "detail": "I rebuilt the full level 1-1 with Java, Swing and AWT: gravity and collision physics, three Mario states, enemies, power-ups, fireballs and music. The video is the actual game, recorded frame by frame.",
         "videoLabel": "Super Mario Java gameplay: start of level 1-1"
       }
-    ]
+    ],
+    "playVideo": "Play video"
   },
   "education": {
     "description": "Where I studied and what I'm studying now.",

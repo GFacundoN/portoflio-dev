@@ -145,10 +145,48 @@ html[data-theme="dark"] {
 }
 
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .group:hover .case-shot img,
-  .group:focus-within .case-shot img {
+  .group:hover .case-shot img {
     transform: translateY(calc(-100% + var(--shot-h)));
     transition: transform 3.5s cubic-bezier(0.45, 0, 0.55, 1);
+  }
+}
+
+/* Pantallas táctiles: el recorrido se activa con un toque (clase is-active) */
+@media (prefers-reduced-motion: no-preference) {
+  .case-shot.is-active img {
+    transform: translateY(calc(-100% + var(--shot-h)));
+    transition: transform 3.5s cubic-bezier(0.45, 0, 0.55, 1);
+  }
+}
+
+.case-shot {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.case-shot__hint {
+  display: none;
+}
+
+@media (hover: none) {
+  .case-shot__hint {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 0.75rem;
+    transform: translateX(-50%);
+    padding: 0.4rem 0.75rem;
+    border-radius: 9999px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    white-space: nowrap;
+    color: #fff;
+    background: rgba(10, 12, 40, 0.72);
+    transition: opacity 200ms ease-out;
+  }
+
+  .case-shot.is-active .case-shot__hint {
+    opacity: 0;
   }
 }
 
