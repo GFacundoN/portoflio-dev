@@ -136,9 +136,9 @@
       },
       {
         "client": "AndesTex",
-        "type": "Online store",
-        "problem": "After the landing page, they needed to sell and present their product catalog in an organized way.",
-        "solution": "An online store with a product catalog, matching the landing page's visual identity.",
+        "type": "Online store · YPF Uniformes",
+        "problem": "After the landing page, they needed to sell online the workwear they manufacture for YPF service stations.",
+        "solution": "An online store built with Astro, with a categorized catalog, prices and a shopping cart.",
         "result": "Returning client: from a landing page to their own sales platform."
       },
       {

@@ -136,9 +136,9 @@
       },
       {
         "client": "AndesTex",
-        "type": "Tienda online",
-        "problem": "Después de la landing, necesitaban vender y mostrar su catálogo de productos de forma ordenada.",
-        "solution": "Tienda online con catálogo de productos, integrada con la identidad visual de la landing.",
+        "type": "Tienda online · YPF Uniformes",
+        "problem": "Después de la landing, necesitaban vender online la indumentaria de trabajo que fabrican para estaciones de servicio YPF.",
+        "solution": "Tienda online hecha con Astro, con catálogo por categorías, precios y carrito de compras.",
         "result": "Cliente recurrente: de una landing a una plataforma de venta propia."
       },
       {

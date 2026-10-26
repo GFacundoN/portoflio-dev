@@ -8,11 +8,13 @@ export const clientsData = [
   },
   {
     id: "andestex-landing",
-    technologies: ["Figma", "Landing page"],
+    technologies: ["WordPress", "Elementor", "Figma"],
+    liveUrl: "https://andestex.com.ar",
   },
   {
     id: "andestex-store",
-    technologies: ["Figma", "E-commerce"],
+    technologies: ["Astro", "E-commerce", "Figma"],
+    liveUrl: "https://tienda.ypfuniformes.com.ar",
   },
   {
     id: "la-jungla",
