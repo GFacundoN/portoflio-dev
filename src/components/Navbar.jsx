@@ -43,43 +43,33 @@ export default function Navbar({ setTheme, onOpenCv }) {
     return () => window.removeEventListener('resize', checkDesktop);
   }, []);
 
-  // Scroll spy para activar item según sección visible
+  // Scroll spy: una línea imaginaria a un tercio de la pantalla marca la sección activa.
+  // IntersectionObserver evita leer el layout en cada evento de scroll.
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map(item => {
-        const el = document.getElementById(item.section);
-        return el ? { name: item.name, element: el } : null;
-      }).filter(Boolean);
-
-      const scrollPosition = window.scrollY + window.innerHeight / 3; // Un tercio de la ventana
-
-      // Verificar si estamos antes de la primera sección
-      if (sections.length > 0 && scrollPosition < sections[0].element.offsetTop) {
-        setCurrent("");
-        return;
-      }
-
-      let activeSection = "";
-      
-      // Buscar la sección que está más cerca al centro de la pantalla
-      for (const section of sections) {
-        const rect = section.element.getBoundingClientRect();
-        const sectionTop = rect.top + window.scrollY;
-        const sectionBottom = sectionTop + rect.height;
-        
-        // Verificar si el punto de scroll está dentro de esta sección
-        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-          activeSection = section.name;
-          break;
-        }
-      }
-      
-      setCurrent(activeSection);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const item = navItems.find((i) => i.section === entry.target.id);
+            setCurrent(item ? item.name : "");
+          }
+        });
+      },
+      { rootMargin: "-33% 0px -66% 0px" }
+    );
+    navItems.forEach((item) => {
+      const el = document.getElementById(item.section);
+      if (el) observer.observe(el);
+    });
+    const onTop = () => {
+      if (window.scrollY < window.innerHeight / 2) setCurrent("");
     };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", onTop, { passive: true });
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onTop);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Activar animación de entrada al cargar

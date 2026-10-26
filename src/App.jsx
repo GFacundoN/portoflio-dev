@@ -30,7 +30,7 @@ function App() {
   const closeCv = useCallback(() => setCvOpen(false), []);
 
   return (
-    <div className={`min-h-screen transition-all ${theme === "dark" ? "dark bg-diamond-dark" : "bg-diamond-light"}`}>
+    <div className={`min-h-screen ${theme === "dark" ? "dark bg-diamond-dark" : "bg-diamond-light"}`}>
       <Navbar setTheme={setTheme} onOpenCv={openCv} />
       <main>
         <Hero onOpenCv={openCv} />

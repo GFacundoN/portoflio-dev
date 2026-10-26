@@ -36,19 +36,18 @@ function CaseCard({ data, text, index }) {
         </div>
       )}
       <div className="p-6 flex flex-col gap-4 flex-1">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-[#00C266] dark:text-[#00EC7A]">{text.type}</p>
-          <h3 className="text-xl font-extrabold mt-1">{text.client}</h3>
+        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+          <h3 className="text-xl font-extrabold">{text.client}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{text.type}</p>
         </div>
 
-        <dl className="flex flex-col gap-3 text-sm leading-relaxed">
-          {["problem", "solution", "result"].map((key) => (
-            <div key={key}>
-              <dt className="font-bold text-gray-900 dark:text-white">{t(`clients.${key}`)}</dt>
-              <dd className="text-gray-600 dark:text-gray-400">{text[key]}</dd>
-            </div>
-          ))}
-        </dl>
+        {/* Necesidad y solución como un párrafo corrido; el resultado se destaca por peso, no por color */}
+        <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+          {text.problem} <span className="text-gray-800 dark:text-gray-200">{text.solution}</span>
+        </p>
+        <p className="text-sm leading-relaxed font-semibold text-gray-900 dark:text-white border-l-2 border-[#00EC7A] pl-3">
+          {text.result}
+        </p>
 
         <div className="flex flex-wrap gap-2 mt-auto pt-2">
           {data.technologies.map((tech) => (
@@ -101,7 +100,7 @@ export default function Clients() {
               as="figure"
               key={review.author}
               delay={index * 60}
-              className={`flex flex-col ${index === 0 ? "animated-border-card" : ""}`}
+              className="flex flex-col"
             >
               <div className="glass-card p-5 flex flex-col gap-4 h-full">
                 <Rating value={review.rating} />

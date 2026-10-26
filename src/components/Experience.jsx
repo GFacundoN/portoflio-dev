@@ -44,7 +44,7 @@ export default function Experience() {
                         <h4 className="text-green-600 dark:text-green-500 font-bold text-lg leading-snug">{role.title}</h4>
                         <p className="text-gray-500 dark:text-gray-400 text-sm mt-0.5">{role.date}</p>
                         {role.promoted && (
-                          <span className="chip mt-2">↑ {t("experience.promotion")}</span>
+                          <span className="chip mt-2">{t("experience.promotion")}</span>
                         )}
                       </div>
                       <div>

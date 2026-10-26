@@ -132,7 +132,7 @@ export default function CvModal({ open, onClose }) {
       <div
         className={`relative w-full sm:max-w-4xl max-h-[92vh] flex flex-col rounded-t-3xl sm:rounded-2xl border backdrop-blur-xl shadow-2xl
           bg-white/90 border-gray-200 dark:bg-[#0B0E2B]/85 dark:border-white/10 text-gray-900 dark:text-white
-          transition-all ${
+          transition-[opacity,transform] ${
             shown
               ? "opacity-100 translate-y-0 sm:scale-100 duration-300 ease-out"
               : "opacity-0 translate-y-6 sm:translate-y-2 sm:scale-[0.98] duration-150 ease-in"

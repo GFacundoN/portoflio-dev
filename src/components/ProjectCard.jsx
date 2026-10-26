@@ -9,7 +9,7 @@ export default function ProjectCard({ project }) {
   const isReactComponent = typeof ImageComponent === 'function';
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center hover:scale-105 transition-all duration-300 ease-in-out p-5">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center hover:scale-[1.03] transition-transform duration-300 ease-out p-5">
       <div className="w-full sm:w-[40%] h-40 sm:h-32 flex-shrink-0 overflow-hidden rounded-lg">
         {isReactComponent ? (
           <ImageComponent className="w-full h-full min-w-full min-h-full object-cover object-center" />

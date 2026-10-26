@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import EducationIcon from "../assets/icons/education.svg?react";
 import LinkedInIcon from "../assets/icons/linkedinDark.svg?react";
-import metaCertificate from "../assets/certificates/meta.svg";
-import aiEssentialsCertificate from "../assets/certificates/aiEssentials.svg";
-import tecnicoCertificate from "../assets/certificates/tecnico.svg";
+import metaCertificate from "../assets/certificates/meta.webp";
+import aiEssentialsCertificate from "../assets/certificates/aiEssentials.webp";
+import tecnicoCertificate from "../assets/certificates/tecnico.webp";
 import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 
@@ -44,9 +44,9 @@ export default function Education() {
             <Reveal
               key={item.id}
               delay={index * 60}
-              className={item.inProgress ? "animated-border-card" : ""}
+              className="h-full"
             >
-              <div className="bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/50 hover:border-[#00EC7A]/30 transition-all duration-100 group h-full flex flex-col">
+              <div className="bg-gray-100 dark:bg-gray-800/50 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700/50 hover:border-[#00EC7A]/30 transition-colors duration-200 group h-full flex flex-col">
                 {/* Imagen del certificado con hover overlay */}
                 <div className="relative h-48 overflow-hidden">
                   {item.image ? (
@@ -54,21 +54,22 @@ export default function Education() {
                       src={item.image}
                       alt={item.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-all duration-300"
+                      decoding="async"
+                      className="w-full h-full object-cover"
                     />
                   ) : (
                     <div className="w-full h-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-[#00013A] via-[#0B1B5A] to-[#003B2A]">
                       <span className="text-5xl font-extrabold tracking-tight text-white">ITBA</span>
-                      <span className="text-xs font-bold uppercase tracking-widest text-[#00EC7A]">{t("education.inProgress")}</span>
+                      <span className="text-sm font-semibold text-[#00EC7A]">{t("education.inProgress")}</span>
                     </div>
                   )}
                   {/* Overlay con hover effect */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 group-focus-within:bg-black/60 transition-all duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 group-focus-within:bg-black/60 transition-colors duration-300 flex items-center justify-center">
                     <a
                       href={item.certificateUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-white font-semibold text-sm border border-white/30 hover:bg-white/30"
+                      className="opacity-0 group-hover:opacity-100 focus:opacity-100 transition-opacity duration-300 bg-black/40 px-4 py-2 rounded-lg text-white font-semibold text-sm border border-white/30 hover:bg-white/30"
                     >
                       {item.inProgress ? t("education.viewProgram") : t("education.viewCertificate")}
                     </a>

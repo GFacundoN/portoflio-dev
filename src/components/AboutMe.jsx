@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import PacmanIcon from "../assets/icons/pacman.svg?react";
 import StackIcon from "../assets/icons/stack.svg?react";
 import LanguagesIcon from "../assets/icons/languages.svg?react";
-import aboutMeImage from "../assets/pfp-aboutme.png";
+import aboutMeImage from "../assets/pfp-aboutme.webp";
 import Reveal from "./Reveal";
 import { skillsData } from "../data/skillsData";
 
@@ -53,7 +53,7 @@ const AboutMe = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {Object.entries(skillsData).map(([category, skills]) => (
                 <div key={category}>
-                  <p className="text-xs font-bold uppercase tracking-wider text-[#00C266] dark:text-[#00EC7A] mb-2">
+                  <p className="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">
                     {t(`skills.categories.${category}`)}
                   </p>
                   <div className="flex flex-wrap gap-2">

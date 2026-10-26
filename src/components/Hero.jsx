@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import profilePic from "../assets/pfp.jpg";
+import profilePic from "../assets/pfp.webp";
 import LinkedInIcon from "../assets/icons/linkedin.svg?react";
 import GithubIcon from "../assets/icons/github.svg?react";
 import WhatsAppIcon from "../assets/icons/whatsapp.svg?react";
@@ -88,25 +88,19 @@ export default function Hero({ onOpenCv }) {
               className="animated-border-gradient"
             >
               <div className="px-4 py-2 rounded-full font-bold text-sm relative z-10 text-gray-900 dark:text-white flex items-center gap-2">
-                <span className="relative flex w-2 h-2" aria-hidden="true">
-                  <span className="absolute inline-flex w-full h-full rounded-full bg-[#00EC7A] opacity-60 motion-safe:animate-ping" />
-                  <span className="relative inline-flex w-2 h-2 rounded-full bg-[#00EC7A]" />
-                </span>
+                <span className="w-2 h-2 rounded-full bg-[#00EC7A]" aria-hidden="true" />
                 {t("hero.available")}
               </div>
             </a>
           </div>
 
           {/* Números */}
-          <dl className="grid grid-cols-3 gap-2 sm:gap-3 mt-4 max-w-lg">
+          <dl className="flex flex-wrap gap-x-8 gap-y-3 mt-4 pt-5 border-t border-gray-300 dark:border-white/10">
             {stats.map((stat) => (
-              <div key={stat.label} className="glass-card px-3 sm:px-4 py-3">
-                <dt className="sr-only">{stat.label}</dt>
-                <dd className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tabular-nums">
+              <div key={stat.label} className="flex flex-col-reverse">
+                <dt className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{stat.label}</dt>
+                <dd className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tabular-nums leading-tight">
                   {stat.value}
-                </dd>
-                <dd className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight mt-0.5" aria-hidden="true">
-                  {stat.label}
                 </dd>
               </div>
             ))}
@@ -118,7 +112,11 @@ export default function Hero({ onOpenCv }) {
           <img
             src={profilePic}
             alt="Facundo Gandolfo"
-            className="w-3/4 sm:w-4/5 md:w-5/6 max-w-md rounded-full shadow-lg"
+            width="900"
+            height="900"
+            fetchpriority="high"
+            decoding="async"
+            className="w-3/4 sm:w-4/5 md:w-5/6 max-w-md h-auto rounded-full shadow-lg"
           />
         </div>
       </div>

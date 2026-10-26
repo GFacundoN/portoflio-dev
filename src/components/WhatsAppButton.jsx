@@ -37,8 +37,8 @@ export default function WhatsAppButton() {
       title={t("contact.whatsapp")}
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
-      className={`fixed z-40 right-4 sm:right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg backdrop-blur-md border transition-all
-        bg-[#25D366]/90 border-white/20 text-white hover:bg-[#25D366]
+      className={`fixed z-40 right-4 sm:right-6 w-14 h-14 rounded-full flex items-center justify-center shadow-lg border transition-[opacity,transform,background-color]
+        bg-[#25D366] border-white/20 text-white hover:bg-[#20bd5a]
         ${visible ? "opacity-100 translate-y-0 duration-300 ease-out" : "opacity-0 translate-y-4 pointer-events-none duration-200 ease-in"}`}
       style={{ bottom: "max(1.5rem, calc(env(safe-area-inset-bottom) + 1rem))" }}
     >

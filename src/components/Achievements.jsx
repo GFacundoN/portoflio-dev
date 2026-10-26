@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 import TrophyIcon from "../assets/icons/trophy.svg?react";
 import LinkedInIcon from "../assets/icons/linkedin.svg?react";
 import ExternalIcon from "../assets/icons/external.svg?react";
-import profilePic from "../assets/pfp.jpg";
+import profilePic from "../assets/pfp.webp";
 
 const EKOPARTY_POST_URL =
   "https://www.linkedin.com/posts/gfacundon_ekoparty2024-futurohacker-activity-7263215348148027393-bfem";
@@ -20,7 +20,7 @@ export default function Achievements() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-5">
           {/* Preview de la publicación de Ekoparty, con el look de una tarjeta de LinkedIn pero en glass */}
-          <Reveal className="animated-border-card">
+          <Reveal>
             <a
               href={EKOPARTY_POST_URL}
               target="_blank"
@@ -41,9 +41,9 @@ export default function Achievements() {
                 </span>
               </div>
 
-              <div className="rounded-xl p-5 bg-gradient-to-br from-[#4885FF]/15 via-transparent to-[#00EC7A]/10 border border-gray-200 dark:border-white/10">
-                <p className="text-xs font-bold uppercase tracking-wider text-[#4885FF]">Ekoparty 2024 · Futuro Hacker</p>
-                <p className="text-lg sm:text-xl font-extrabold mt-1 leading-snug">“Tokengrabber, el terror de la Generación Z”</p>
+              <div>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Ekoparty 2024 · Futuro Hacker</p>
+                <p className="text-xl sm:text-2xl font-extrabold mt-1 leading-snug">“Tokengrabber, el terror de la Generación Z”</p>
               </div>
 
               <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{t("achievements.post.text")}</p>
