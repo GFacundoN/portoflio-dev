@@ -155,7 +155,8 @@
       "title": "Lo que dicen mis clientes",
       "source": "Reseña verificada en Fiverr",
       "recurring": "Cliente recurrente",
-      "viewAll": "Ver todas las reseñas"
+      "viewAll": "Ver todas las reseñas",
+      "subtitle": "Reseñas verificadas de Fiverr"
     }
   },
   "projects": {
@@ -289,15 +290,16 @@
       },
       {
         "year": "2025",
-        "title": "Estudiante destacado · Coursera",
-        "description": "Reconocimiento por desempeño en 2025."
-      },
-      {
-        "year": "2025",
         "title": "Voluntario · EducationUSA Argentina",
         "description": "LL.M Fair 2025."
       }
-    ]
+    ],
+    "coursera": {
+      "label": "Historia de estudiante · Coursera",
+      "title": "The High School Senior Seeking an “Extra Edge”: Meet Facundo",
+      "text": "Coursera eligió mi historia como estudiante destacado: cómo usé el certificado de Meta para complementar lo que aprendía en la técnica y aplicarlo en la pasantía, liderando tareas en un proyecto con React.",
+      "cta": "Leer el artículo"
+    }
   },
   "skills": {
     "title": "Stack y habilidades",
@@ -321,8 +323,8 @@
   },
   "aboutMe": {
     "paragraph1": "Entré a Modica Seguros como pasante en 2025. Un año después estoy a cargo de la parte técnica del sistema interno: decido cómo se organiza el código, reviso lo que escriben los pasantes y armé el material con el que aprenden.",
-    "paragraph2": "Con la IA escribiendo cada vez más código, lo que hace la diferencia es entender el problema y saber explicarlo: traducir lo técnico para quien no lo es y trabajar bien en equipo. Por eso diseño en Figma antes de programar, y reorganicé el backend para que alguien nuevo no tenga que adivinar dónde está cada cosa.",
-    "paragraph3": "Ahora estoy cursando el Full Stack Developer del ITBA con una beca de Santander Open Academy. Me interesan equipos que cuiden cómo trabajan, no solo qué entregan."
+    "paragraph2": "Con la IA escribiendo cada vez más código, lo que hace la diferencia es entender el problema y saber explicarlo: traducir lo técnico para quien no lo es y trabajar bien en equipo. Es lo que más practico en Modica, cuando les explico a los pasantes por qué hacemos algo de una forma y no de otra.",
+    "paragraph3": "Ahora estoy cursando el Full Stack Developer del ITBA con una beca de Santander Open Academy. Lo que busco es un equipo con gente de la que pueda aprender."
   },
   "contact": {
     "title": "¿Tenés algo en mente?",

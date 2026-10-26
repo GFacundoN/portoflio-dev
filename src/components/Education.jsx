@@ -40,7 +40,13 @@ function EducationCard({ item, index }) {
               </span>
             </div>
           ) : (
-            <img src={item.image} alt={item.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+            <img
+              src={item.image}
+              alt={item.title}
+              loading="lazy"
+              decoding="async"
+              className={`w-full h-full ${item.fit === "contain" ? "object-contain p-4 bg-white" : "object-cover"}`}
+            />
           )}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 group-focus-within:bg-black/60 transition-colors duration-300 flex items-center justify-center">
             <a
@@ -71,40 +77,27 @@ function EducationCard({ item, index }) {
   );
 }
 
-// Certificación destacada: ocupa todo el ancho y detalla los cursos que incluye.
-// La imagen mantiene su proporción para no quedar perdida en un bloque blanco.
+// Certificación destacada: sin tarjeta ni banner, con el mismo lenguaje tipográfico que Experiencia.
 function FeaturedCertificate({ item }) {
   const { t } = useTranslation();
 
   return (
-    <Reveal className="glass-card p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-6 lg:gap-10 mb-4 md:mb-6">
+    <Reveal className="rule grid grid-cols-1 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] gap-6 lg:gap-16 py-10 mb-10">
       <div className="flex flex-col gap-3">
-        <a
-          href={item.certificateUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block overflow-hidden rounded-lg border border-gray-200 dark:border-white/[0.08]"
-          aria-label={`${t("education.viewCertificate")}: ${item.title}`}
-        >
-          <img src={item.image} alt="" loading="lazy" decoding="async" width="772" height="404" className="w-full h-auto" />
-        </a>
-        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 mt-1">
-          <h3 className="text-lg font-bold leading-snug">{item.title}</h3>
-          <p className="meta">{item.period}</p>
-        </div>
-        <p className="text-gray-600 dark:text-gray-400 text-sm -mt-1">{item.institution} · Coursera</p>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{item.description}</p>
-        <a href={item.certificateUrl} target="_blank" rel="noopener noreferrer" className={`${textLink} self-start`}>
+        <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight leading-snug">{item.title}</h3>
+        <p className="meta">{item.institution} · Coursera · {item.period}</p>
+        <p className="text-sm sm:text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">{item.description}</p>
+        <a href={item.certificateUrl} target="_blank" rel="noopener noreferrer" className={`${textLink} self-start mt-1`}>
           {t("education.viewCertificate")} ↗
         </a>
       </div>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-6">
         <div>
-          <p className="meta mb-2.5">{t("education.coursesTitle")}</p>
-          <ol className="text-sm text-gray-800 dark:text-gray-200">
+          <p className="meta mb-1">{t("education.coursesTitle")}</p>
+          <ol className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 text-sm text-gray-800 dark:text-gray-200">
             {item.courses.map((course, index) => (
-              <li key={course} className="grid grid-cols-[2rem_1fr] py-2 border-b border-gray-200 dark:border-white/[0.06] last:border-b-0">
+              <li key={course} className="grid grid-cols-[1.75rem_1fr] py-2.5 border-b border-gray-300/70 dark:border-white/[0.07]">
                 <span className="font-mono text-xs text-gray-400 dark:text-gray-500 pt-0.5 tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -113,15 +106,10 @@ function FeaturedCertificate({ item }) {
             ))}
           </ol>
         </div>
-
-        <div>
-          <p className="meta mb-2.5">{t("education.skillsTitle")}</p>
-          <div className="flex flex-wrap gap-1.5">
-            {item.skills.map((skill) => (
-              <span key={skill} className="chip">{skill}</span>
-            ))}
-          </div>
-        </div>
+        <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+          <span className="meta mr-2">{t("education.skillsTitle")}</span>
+          {item.skills.join(" · ")}
+        </p>
       </div>
     </Reveal>
   );
@@ -136,6 +124,8 @@ export default function Education() {
     inProgress: index === 0,
     certificateUrl: certificateUrls[index],
     image: certificateImages[index],
+    // Los logos de Google y del Técnico se recortaban con "cover": se muestran completos
+    fit: index >= 2 ? "contain" : "cover",
   }));
 
   const featured = educationData[FEATURED_INDEX];

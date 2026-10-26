@@ -2,25 +2,11 @@ import { useTranslation } from "react-i18next";
 import SectionHeader from "./SectionHeader";
 import ClientsIcon from "../assets/icons/clients.svg?react";
 import Reveal from "./Reveal";
-import StarIcon from "../assets/icons/star.svg?react";
 import { clientsData, testimonialsData } from "../data/clientsData";
 import { contactData } from "../data/contactData";
 
 const textLink =
   "inline-flex items-center gap-1.5 text-sm font-semibold text-gray-900 dark:text-white underline decoration-gray-400/60 underline-offset-4 hover:decoration-current transition-colors";
-
-function Rating({ value }) {
-  return (
-    <div className="flex items-center gap-2" aria-label={`${value} / 5`}>
-      <div className="flex text-amber-400" aria-hidden="true">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <StarIcon key={i} className={`w-3.5 h-3.5 ${i < Math.round(value) ? "" : "opacity-25"}`} />
-        ))}
-      </div>
-      <span className="meta tabular-nums">{value}</span>
-    </div>
-  );
-}
 
 function CaseBody({ data, text }) {
   const { t } = useTranslation();
@@ -62,18 +48,37 @@ function CaseBody({ data, text }) {
   );
 }
 
-function Avatar({ review }) {
+function Avatar({ review, size = "w-10 h-10 text-base" }) {
   if (review.avatar) {
-    return <img src={review.avatar} alt="" width="40" height="40" loading="lazy" decoding="async" className="w-10 h-10 rounded-full shrink-0" />;
+    return <img src={review.avatar} alt="" width="40" height="40" loading="lazy" decoding="async" className={`${size} rounded-full shrink-0`} />;
   }
   return (
     <span
       aria-hidden="true"
-      className="w-10 h-10 rounded-full shrink-0 flex items-center justify-center text-base font-bold"
+      className={`${size} rounded-full shrink-0 flex items-center justify-center font-bold`}
       style={{ background: review.initial.bg, color: review.initial.fg }}
     >
       {review.initial.letter}
     </span>
+  );
+}
+
+function ReviewMeta({ review }) {
+  const { t } = useTranslation();
+  return (
+    <p className="meta mt-0.5">
+      <span className="text-amber-500 dark:text-amber-400">★</span> {review.rating.toFixed(1)} · {t(`countries.${review.country}`)}
+      {review.recurring && <> · {t("clients.testimonials.recurring")}</>}
+    </p>
+  );
+}
+
+function ReviewAuthor({ review }) {
+  return (
+    <p className="text-sm font-bold text-gray-900 dark:text-white break-words">
+      {review.author}
+      {review.project && <span className="font-normal text-gray-500 dark:text-gray-400"> · {review.project}</span>}
+    </p>
   );
 }
 
@@ -105,6 +110,9 @@ function CaseCard({ data, text, index }) {
 export default function Clients() {
   const { t } = useTranslation();
   const cases = t("clients.items", { returnObjects: true });
+  // La reseña más completa va destacada
+  const featuredReview = testimonialsData.find((r) => r.featured) ?? testimonialsData[0];
+  const otherReviews = testimonialsData.filter((r) => r !== featuredReview);
 
   return (
     <section id="clientes" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
@@ -117,34 +125,49 @@ export default function Clients() {
           ))}
         </div>
 
-        {/* Testimonios */}
-        <Reveal className="rule mt-20 pt-10 flex flex-wrap items-end justify-between gap-4 mb-8">
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">{t("clients.testimonials.title")}</h3>
+        {/* Testimonios: una reseña destacada en grande y el resto como lista editorial */}
+        <Reveal className="rule mt-20 pt-10 flex flex-wrap items-end justify-between gap-4 mb-10">
+          <div>
+            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">{t("clients.testimonials.title")}</h3>
+            <p className="meta mt-2">{t("clients.testimonials.subtitle")}</p>
+          </div>
           <a href={contactData.fiverr} target="_blank" rel="noopener noreferrer" className={textLink}>
             {t("clients.testimonials.viewAll")} ↗
           </a>
         </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {testimonialsData.map((review, index) => (
-            <Reveal as="figure" key={review.author} delay={index * 50} className="glass-card p-5 flex flex-col gap-4">
-              <Rating value={review.rating} />
-              <blockquote lang={review.lang} className="text-[15px] text-gray-800 dark:text-gray-200 leading-relaxed flex-1">
-                “{review.text}”
-              </blockquote>
-              <figcaption className="flex items-center gap-3">
-                <Avatar review={review} />
-                <div className="min-w-0">
-                  <p className="text-sm font-bold text-gray-900 dark:text-white break-words">
-                    {review.author}
-                    {review.project && <span className="font-normal text-gray-500 dark:text-gray-400"> · {review.project}</span>}
-                  </p>
-                  <p className="meta mt-0.5">
-                    {t(`countries.${review.country}`)} · {review.recurring ? t("clients.testimonials.recurring") : "Fiverr"}
-                  </p>
-                </div>
-              </figcaption>
-            </Reveal>
-          ))}
+
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-10 lg:gap-16">
+          <Reveal as="figure" className="flex flex-col gap-6 lg:pr-4">
+            <blockquote lang={featuredReview.lang} className="text-2xl sm:text-3xl font-semibold leading-snug tracking-tight text-gray-900 dark:text-white">
+              “{featuredReview.text}”
+            </blockquote>
+            <figcaption className="flex items-center gap-3">
+              <Avatar review={featuredReview} size="w-12 h-12 text-lg" />
+              <div className="min-w-0">
+                <ReviewAuthor review={featuredReview} />
+                <ReviewMeta review={featuredReview} />
+              </div>
+            </figcaption>
+          </Reveal>
+
+          <ul className="rule">
+            {otherReviews.map((review, index) => (
+              <Reveal as="li" key={review.author} delay={index * 50} className="py-6 border-b border-gray-300 dark:border-white/10">
+                <figure className="flex flex-col gap-4">
+                  <blockquote lang={review.lang} className="text-base leading-relaxed text-gray-800 dark:text-gray-200">
+                    “{review.text}”
+                  </blockquote>
+                  <figcaption className="flex items-center gap-3">
+                    <Avatar review={review} size="w-8 h-8 text-sm" />
+                    <div className="min-w-0">
+                      <ReviewAuthor review={review} />
+                      <ReviewMeta review={review} />
+                    </div>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

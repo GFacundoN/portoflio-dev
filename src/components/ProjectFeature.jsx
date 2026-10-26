@@ -54,9 +54,19 @@ export default function ProjectFeature({ project }) {
         <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">{project.title}</h3>
         <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">{project.detail}</p>
         <div className="flex gap-1.5 flex-wrap mt-1">
-          {project.technologies.map((tech) => (
-            <span key={tech.name} className="chip">{tech.name}</span>
-          ))}
+          {project.technologies.map((tech) => {
+            const TechIcon = tech.icon;
+            return (
+              <span
+                key={tech.name}
+                style={{ backgroundColor: tech.color }}
+                className="text-white text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1"
+              >
+                <TechIcon className="w-4 h-4" aria-hidden="true" />
+                {tech.name}
+              </span>
+            );
+          })}
         </div>
         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className={`${textLink} self-start mt-2`}>
           {t("projects.code")} ↗

@@ -155,7 +155,8 @@
       "title": "What my clients say",
       "source": "Verified Fiverr review",
       "recurring": "Returning client",
-      "viewAll": "See all reviews"
+      "viewAll": "See all reviews",
+      "subtitle": "Verified Fiverr reviews"
     }
   },
   "projects": {
@@ -289,15 +290,16 @@
       },
       {
         "year": "2025",
-        "title": "Outstanding student · Coursera",
-        "description": "Recognized for performance in 2025."
-      },
-      {
-        "year": "2025",
         "title": "Volunteer · EducationUSA Argentina",
         "description": "LL.M Fair 2025."
       }
-    ]
+    ],
+    "coursera": {
+      "label": "Learner story · Coursera",
+      "title": "The High School Senior Seeking an “Extra Edge”: Meet Facundo",
+      "text": "Coursera featured my story as an outstanding learner: how I used the Meta certificate to complement what I was learning at technical school and apply it during my internship, leading tasks on a React project.",
+      "cta": "Read the article"
+    }
   },
   "skills": {
     "title": "Stack & skills",
@@ -321,8 +323,8 @@
   },
   "aboutMe": {
     "paragraph1": "I joined Modica Seguros as an intern in 2025. A year later I'm in charge of the technical side of their internal system: I decide how the code is organized, review what the interns write, and created the material they learn from.",
-    "paragraph2": "With AI writing more and more of the code, what makes the difference is understanding the problem and being able to explain it: translating the technical side for people who aren't technical, and working well as a team. That's why I design in Figma before coding, and why I reorganized the backend so someone new doesn't have to guess where everything lives.",
-    "paragraph3": "I'm currently taking ITBA's Full Stack Developer program on a Santander Open Academy scholarship. I'm drawn to teams that care about how they work, not just what they ship."
+    "paragraph2": "With AI writing more and more of the code, what makes the difference is understanding the problem and being able to explain it: translating the technical side for people who aren't technical, and working well as a team. It's what I practice most at Modica, when I explain to the interns why we do something one way and not another.",
+    "paragraph3": "I'm currently taking ITBA's Full Stack Developer program on a Santander Open Academy scholarship. What I'm looking for is a team with people I can learn from."
   },
   "contact": {
     "title": "Got something in mind?",

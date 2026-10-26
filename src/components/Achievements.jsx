@@ -6,6 +6,8 @@ import LinkedInIcon from "../assets/icons/linkedin.svg?react";
 import ExternalIcon from "../assets/icons/external.svg?react";
 import profilePic from "../assets/pfp.webp";
 
+const COURSERA_ARTICLE_URL = "https://www.coursera.org/articles/learner-story-facundo-n";
+
 const EKOPARTY_POST_URL =
   "https://www.linkedin.com/posts/gfacundon_ekoparty2024-futurohacker-activity-7263215348148027393-bfem";
 
@@ -18,7 +20,7 @@ export default function Achievements() {
       <div className="max-w-[1300px] mx-auto">
         <SectionHeader icon={TrophyIcon} title={t("achievements.title")} description={t("achievements.description")} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5">
           {/* La publicación de Ekoparty es un objeto (un post), por eso sí va en tarjeta */}
           <Reveal>
             <a
@@ -35,10 +37,7 @@ export default function Achievements() {
                     <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{t("achievements.post.role")}</p>
                   </div>
                 </div>
-                <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 shrink-0">
-                  <LinkedInIcon className="w-4 h-4" aria-hidden="true" />
-                  <span className="hidden sm:inline">{t("achievements.post.label")}</span>
-                </span>
+                <LinkedInIcon className="w-5 h-5 shrink-0 text-gray-500 dark:text-gray-400" aria-label="LinkedIn" />
               </div>
 
               <div>
@@ -55,8 +54,27 @@ export default function Achievements() {
             </a>
           </Reveal>
 
-          {/* Resto de logros */}
-          <ul className="rule">
+          {/* Artículo de Coursera: es lo que más interesa mostrar, por eso lleva el botón principal */}
+          <Reveal delay={60} className="glass-card p-6 flex flex-col gap-4">
+            <p className="meta">{t("achievements.coursera.label")} · 2026</p>
+            <p className="text-xl sm:text-2xl font-extrabold leading-snug" lang="en">
+              {t("achievements.coursera.title")}
+            </p>
+            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{t("achievements.coursera.text")}</p>
+            <a
+              href={COURSERA_ARTICLE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary self-start mt-auto"
+            >
+              {t("achievements.coursera.cta")}
+              <ExternalIcon className="w-4 h-4" aria-hidden="true" />
+            </a>
+          </Reveal>
+        </div>
+
+        {/* Resto de logros */}
+        <ul className="rule mt-12 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-16">
             {items.map((item, index) => (
               <Reveal
                 as="li"
@@ -71,8 +89,7 @@ export default function Achievements() {
                 </div>
               </Reveal>
             ))}
-          </ul>
-        </div>
+        </ul>
       </div>
     </section>
   );

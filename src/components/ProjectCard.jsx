@@ -27,9 +27,19 @@ export default function ProjectCard({ project }) {
           </p>
         )}
         <div className="flex gap-1.5 flex-wrap">
-          {project.technologies.map((tech) => (
-            <span key={tech.name} className="chip">{tech.name}</span>
-          ))}
+          {project.technologies.map((tech) => {
+            const TechIcon = tech.icon;
+            return (
+              <span
+                key={tech.name}
+                style={{ backgroundColor: tech.color }}
+                className="text-white text-xs px-3 py-1 rounded-full font-medium flex items-center gap-1"
+              >
+                <TechIcon className="w-4 h-4" aria-hidden="true" />
+                {tech.name}
+              </span>
+            );
+          })}
         </div>
         <p className="text-gray-600 dark:text-gray-400 text-sm mt-0.5">{project.description}</p>
         <div className="flex gap-4 flex-wrap mt-1">

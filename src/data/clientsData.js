@@ -43,6 +43,7 @@ export const testimonialsData = [
     author: "saracalonso",
     country: "ES",
     avatar: AvatarSara,
+    featured: true,
     rating: 5,
     recurring: true,
     text: "Muy buen trabajo en Figma. Ha quedado todo súper limpio y organizado, justo lo que buscaba. Da gusto trabajar con gente así de profesional, mil gracias :)",
