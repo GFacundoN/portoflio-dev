@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import profilePic from "../assets/pfp.webp";
+import profilePic from "../assets/facundo-gandolfo-desarrollador-full-stack.webp";
 import LinkedInIcon from "../assets/icons/linkedin.svg?react";
 import GithubIcon from "../assets/icons/github.svg?react";
 import WhatsAppIcon from "../assets/icons/whatsapp.svg?react";
@@ -108,7 +108,7 @@ export default function Hero({ onOpenCv }) {
         <div className="flex justify-center md:justify-end">
           <img
             src={profilePic}
-            alt="Facundo Gandolfo"
+            alt={t("alts.hero")}
             width="900"
             height="900"
             fetchPriority="high"

@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
-import metaCertificate from "../assets/certificates/meta.webp";
-import aiEssentialsCertificate from "../assets/certificates/aiEssentials.webp";
-import tecnicoCertificate from "../assets/certificates/tecnico.webp";
-import itbaLogo from "../assets/certificates/itba-logo.webp";
+import metaCertificate from "../assets/certificates/meta-front-end-developer-certificado.webp";
+import aiEssentialsCertificate from "../assets/certificates/google-ai-essentials-certificado.webp";
+import tecnicoCertificate from "../assets/certificates/eest-7-jose-hernandez-tecnico-programacion.webp";
+import itbaLogo from "../assets/certificates/itba-instituto-tecnologico-buenos-aires-logo.webp";
 import SectionHeader from "./SectionHeader";
 import EducationIcon from "../assets/icons/education.svg?react";
 import Reveal from "./Reveal";
@@ -33,7 +33,7 @@ function EducationCard({ item, index }) {
           {item.inProgress ? (
             // El ITBA todavía no tiene certificado: se muestra su logo oficial sobre una placa oscura
             <div className="w-full h-full flex flex-col items-center justify-center gap-4 bg-[#0B0E2B]">
-              <img src={item.image} alt="ITBA" loading="lazy" decoding="async" width="600" height="211" className="w-40 h-auto" />
+              <img src={item.image} alt={t("alts.itba")} loading="lazy" decoding="async" width="600" height="211" className="w-40 h-auto" />
               <span className="font-mono text-xs text-gray-300 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#00EC7A]" aria-hidden="true" />
                 {t("education.inProgress")}
@@ -42,7 +42,7 @@ function EducationCard({ item, index }) {
           ) : (
             <img
               src={item.image}
-              alt={item.title}
+              alt={item.alt ? t(`alts.${item.alt}`) : item.title}
               loading="lazy"
               decoding="async"
               className={`w-full h-full ${item.fit === "contain" ? "object-contain p-4 bg-white" : "object-cover"}`}
@@ -126,6 +126,7 @@ export default function Education() {
     image: certificateImages[index],
     // Los logos de Google y del Técnico se recortaban con "cover": se muestran completos
     fit: index >= 2 ? "contain" : "cover",
+    alt: [null, null, "google", "tecnico"][index],
   }));
 
   const featured = educationData[FEATURED_INDEX];

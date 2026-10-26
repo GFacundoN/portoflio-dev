@@ -261,6 +261,68 @@ html[data-theme="dark"] {
   70%, 100% { transform: scale(3); opacity: 0; }
 }
 
+/* Fondo: manchas de luz que fluctúan. Fijas detrás del contenido, animadas solo con transform. */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.bg-glow__blob {
+  position: absolute;
+  width: 70vmax;
+  height: 70vmax;
+  border-radius: 9999px;
+  will-change: transform;
+  animation: glowDrift 32s ease-in-out infinite alternate;
+}
+
+.bg-glow__blob--a {
+  top: -30vmax;
+  left: -20vmax;
+  background: radial-gradient(closest-side, rgba(99, 102, 241, 0.16), transparent);
+}
+
+.bg-glow__blob--b {
+  bottom: -35vmax;
+  right: -25vmax;
+  background: radial-gradient(closest-side, rgba(72, 133, 255, 0.14), transparent);
+  animation-duration: 40s;
+  animation-delay: -12s;
+}
+
+.bg-glow__blob--c {
+  top: 20vh;
+  left: 35vw;
+  width: 50vmax;
+  height: 50vmax;
+  background: radial-gradient(closest-side, rgba(0, 236, 122, 0.05), transparent);
+  animation-duration: 46s;
+  animation-delay: -20s;
+}
+
+.dark .bg-glow__blob--a {
+  background: radial-gradient(closest-side, rgba(79, 70, 229, 0.28), transparent);
+}
+
+.dark .bg-glow__blob--b {
+  background: radial-gradient(closest-side, rgba(37, 99, 235, 0.22), transparent);
+}
+
+.dark .bg-glow__blob--c {
+  background: radial-gradient(closest-side, rgba(0, 236, 122, 0.07), transparent);
+}
+
+@keyframes glowDrift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(8vw, 6vh, 0) scale(1.08); }
+  66% { transform: translate3d(-6vw, 10vh, 0) scale(0.95); }
+  100% { transform: translate3d(4vw, -6vh, 0) scale(1.05); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -279,5 +341,9 @@ html[data-theme="dark"] {
 
   .chrome-pill {
     transition: none;
+  }
+
+  .bg-glow__blob {
+    animation: none;
   }
 }

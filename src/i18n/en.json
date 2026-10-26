@@ -153,10 +153,11 @@
     ],
     "testimonials": {
       "title": "What my clients say",
-      "source": "Verified Fiverr review",
-      "recurring": "Returning client",
+      "source": "Fiverr client",
       "viewAll": "See all reviews",
-      "subtitle": "Verified Fiverr reviews"
+      "subtitle": "Verified Fiverr reviews",
+      "translatedFromEn": "translated from English",
+      "translatedFromEs": "translated from Spanish"
     }
   },
   "projects": {
@@ -352,5 +353,20 @@
     "ES": "Spain",
     "PT": "Portugal",
     "US": "United States"
+  },
+  "alts": {
+    "hero": "Facundo Gandolfo, full-stack developer and tech lead from Buenos Aires",
+    "about": "Illustration of Facundo Gandolfo working as a developer",
+    "ekoparty": "Facundo Gandolfo giving the talk “Tokengrabber, el terror de la Generación Z” at Ekoparty 2024",
+    "coursera": "Cover of Coursera's “Meet Facundo” learner story about Facundo Gandolfo",
+    "itba": "ITBA logo, Buenos Aires Institute of Technology",
+    "google": "Facundo Gandolfo's Google AI Essentials certificate",
+    "tecnico": "Crest of EEST N°7 José Hernández, where Facundo Gandolfo graduated as a Programming Technician",
+    "andestex": "AndesTex landing page for industrial textile solutions, designed and built by Facundo Gandolfo",
+    "ypf": "YPF Uniformes online store by AndesTex, built with Astro by Facundo Gandolfo",
+    "laJungla": "Order and delivery system for La Jungla greengrocer, built by Facundo Gandolfo",
+    "escapadas": "E-Scapadas travel package portal, project selected at the 2025 ETP Olympics",
+    "keyhub": "KeyHub real estate website to buy, sell and rent properties",
+    "mario": "Super Mario Java: a recreation of Super Mario Bros level 1-1 in Java"
   }
 }

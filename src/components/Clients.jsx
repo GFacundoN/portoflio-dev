@@ -63,13 +63,33 @@ function Avatar({ review, size = "w-10 h-10 text-base" }) {
   );
 }
 
+// Idioma del sitio: las reseñas se muestran traducidas y se aclara cuando no es el texto original.
+function useSiteLang() {
+  const { i18n } = useTranslation();
+  return i18n.language === "en" ? "en" : "es";
+}
+
 function ReviewMeta({ review }) {
   const { t } = useTranslation();
+  const siteLang = useSiteLang();
+  const translated = review.lang !== siteLang;
   return (
     <p className="meta mt-0.5">
-      <span className="text-amber-500 dark:text-amber-400">★</span> {review.rating.toFixed(1)} · {t(`countries.${review.country}`)}
-      {review.recurring && <> · {t("clients.testimonials.recurring")}</>}
+      <span className="text-amber-500 dark:text-amber-400">★</span> {review.rating.toFixed(1)} · {t(`countries.${review.country}`)} ·{" "}
+      {t("clients.testimonials.source")}
+      {translated && (
+        <> · {t(review.lang === "en" ? "clients.testimonials.translatedFromEn" : "clients.testimonials.translatedFromEs")}</>
+      )}
     </p>
+  );
+}
+
+function ReviewText({ review, className }) {
+  const siteLang = useSiteLang();
+  return (
+    <blockquote lang={siteLang} className={className}>
+      “{review.text[siteLang]}”
+    </blockquote>
   );
 }
 
@@ -83,12 +103,14 @@ function ReviewAuthor({ review }) {
 }
 
 function CaseCard({ data, text, index }) {
+  const { t } = useTranslation();
+
   // Captura alta de un sitio entregado: se recorre al pasar el mouse.
   if (data.shot) {
     return (
       <Reveal delay={index * 60} className="glass-card group overflow-hidden flex flex-col">
         <div className="case-shot h-60 border-b border-gray-200 dark:border-white/[0.08]" style={{ "--shot-h": "15rem" }}>
-          <img src={data.shot} alt={`${text.client} · ${text.type}`} loading="lazy" decoding="async" width="720" height="1462" />
+          <img src={data.shot} alt={t(`alts.${data.alt}`)} loading="lazy" decoding="async" width="720" height="1462" />
         </div>
         <div className="p-6 flex flex-col flex-1">
           <CaseBody data={data} text={text} />
@@ -99,7 +121,7 @@ function CaseCard({ data, text, index }) {
 
   return (
     <Reveal delay={index * 60} className="glass-card md:col-span-2 overflow-hidden grid grid-cols-1 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
-      <img src={data.image} alt={text.client} loading="lazy" decoding="async" className="w-full h-56 md:h-full object-cover" />
+      <img src={data.image} alt={t(`alts.${data.alt}`)} loading="lazy" decoding="async" className="w-full h-56 md:h-full object-cover" />
       <div className="p-6 sm:p-8 flex flex-col">
         <CaseBody data={data} text={text} />
       </div>
@@ -138,9 +160,10 @@ export default function Clients() {
 
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] gap-10 lg:gap-16">
           <Reveal as="figure" className="flex flex-col gap-6 lg:pr-4">
-            <blockquote lang={featuredReview.lang} className="text-2xl sm:text-3xl font-semibold leading-snug tracking-tight text-gray-900 dark:text-white">
-              “{featuredReview.text}”
-            </blockquote>
+            <ReviewText
+              review={featuredReview}
+              className="text-2xl sm:text-3xl font-semibold leading-snug tracking-tight text-gray-900 dark:text-white"
+            />
             <figcaption className="flex items-center gap-3">
               <Avatar review={featuredReview} size="w-12 h-12 text-lg" />
               <div className="min-w-0">
@@ -154,9 +177,7 @@ export default function Clients() {
             {otherReviews.map((review, index) => (
               <Reveal as="li" key={review.author} delay={index * 50} className="py-6 border-b border-gray-300 dark:border-white/10">
                 <figure className="flex flex-col gap-4">
-                  <blockquote lang={review.lang} className="text-base leading-relaxed text-gray-800 dark:text-gray-200">
-                    “{review.text}”
-                  </blockquote>
+                  <ReviewText review={review} className="text-base leading-relaxed text-gray-800 dark:text-gray-200" />
                   <figcaption className="flex items-center gap-3">
                     <Avatar review={review} size="w-8 h-8 text-sm" />
                     <div className="min-w-0">

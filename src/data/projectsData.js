@@ -1,6 +1,6 @@
-import ProjectEscapadas from "../assets/projects/escapadas.webp";
-import ProjectKeyhub from "../assets/projects/keyhub.webp";
-import ProjectMario from "../assets/projects/mario.webp"
+import ProjectEscapadas from "../assets/projects/e-scapadas-olimpiadas-etp-2025.webp";
+import ProjectKeyhub from "../assets/projects/keyhub-inmobiliaria.webp";
+import ProjectMario from "../assets/projects/super-mario-java.webp"
 
 import AngularIcon from "../assets/icons/angularIcon.svg?react";
 import TailwindIcon from "../assets/icons/tailwindIcon.svg?react";
@@ -15,6 +15,7 @@ export const projectsData = [
   {
     id: 1,
     image: ProjectEscapadas,
+    alt: "escapadas",
     highlighted: true,
     technologies: [
       { name: "Angular", icon: AngularIcon, color: "#912123" },
@@ -27,6 +28,7 @@ export const projectsData = [
   {
     id: 2,
     image: ProjectKeyhub,
+    alt: "keyhub",
     technologies: [
       { name: "Express", icon: ExpressIcon, color: "#535353" },
       { name: "TailwindCSS", icon: TailwindIcon, color: "#003159" },
@@ -38,6 +40,7 @@ export const projectsData = [
   {
     id: 3,
     image: ProjectMario,
+    alt: "mario",
     technologies: [
       { name: "Java", icon:JavaIcon, color: "#143D56" },
       { name: "POO", icon:JavaIcon, color: "#143D56" },

@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import aboutMeImage from "../assets/pfp-aboutme.webp";
+import aboutMeImage from "../assets/facundo-gandolfo-sobre-mi.webp";
 import PacmanIcon from "../assets/icons/pacman.svg?react";
 import Reveal from "./Reveal";
 import { skillsData } from "../data/skillsData";
@@ -26,9 +26,11 @@ const AboutMe = () => {
 
           <img
             src={aboutMeImage}
-            alt="Facundo Gandolfo"
+            alt={t("alts.about")}
             loading="lazy"
             decoding="async"
+            width="427"
+            height="403"
             className="w-full h-auto max-w-md mx-auto"
           />
         </div>

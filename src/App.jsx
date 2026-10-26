@@ -12,6 +12,7 @@ import AboutMe from "./components/AboutMe";
 import Contact from "./components/Contact";
 import CvModal from "./components/CvModal";
 import WhatsAppButton from "./components/WhatsAppButton";
+import BackgroundGlow from "./components/BackgroundGlow";
 import { track } from "./utils/track";
 
 function App() {
@@ -31,8 +32,9 @@ function App() {
 
   return (
     <div className={`min-h-screen ${theme === "dark" ? "dark bg-diamond-dark" : "bg-diamond-light"}`}>
+      <BackgroundGlow />
       <Navbar setTheme={setTheme} onOpenCv={openCv} />
-      <main>
+      <main className="relative z-[1]">
         <Hero onOpenCv={openCv} />
         <Services />
         <Experience />

@@ -42,6 +42,7 @@ export default function ProjectFeature({ project }) {
         preload="none"
         poster={project.video.poster}
         aria-label={project.videoLabel}
+        title={t(`alts.${project.alt}`)}
         width="768"
         height="480"
         className="w-full h-auto rounded-lg border border-gray-200 dark:border-white/[0.08] bg-[#5C94FC] [image-rendering:pixelated]"

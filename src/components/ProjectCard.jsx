@@ -15,7 +15,7 @@ export default function ProjectCard({ project }) {
         {isReactComponent ? (
           <ImageComponent className="w-full h-full min-w-full min-h-full object-cover object-center" />
         ) : (
-          <img src={ImageComponent} alt={project.title} loading="lazy" decoding="async" className="w-full h-full min-w-full min-h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
+          <img src={ImageComponent} alt={project.alt ? t(`alts.${project.alt}`) : project.title} loading="lazy" decoding="async" className="w-full h-full min-w-full min-h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
         )}
       </div>
       <div className="flex flex-col gap-2 w-full sm:w-[60%]">

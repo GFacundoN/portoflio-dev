@@ -153,10 +153,11 @@
     ],
     "testimonials": {
       "title": "Lo que dicen mis clientes",
-      "source": "Reseña verificada en Fiverr",
-      "recurring": "Cliente recurrente",
+      "source": "Cliente de Fiverr",
       "viewAll": "Ver todas las reseñas",
-      "subtitle": "Reseñas verificadas de Fiverr"
+      "subtitle": "Reseñas verificadas de Fiverr",
+      "translatedFromEn": "traducida del inglés",
+      "translatedFromEs": "traducida del español"
     }
   },
   "projects": {
@@ -352,5 +353,20 @@
     "ES": "España",
     "PT": "Portugal",
     "US": "Estados Unidos"
+  },
+  "alts": {
+    "hero": "Facundo Gandolfo, desarrollador full-stack y líder técnico de Buenos Aires",
+    "about": "Ilustración de Facundo Gandolfo trabajando como desarrollador",
+    "ekoparty": "Facundo Gandolfo dando la charla “Tokengrabber, el terror de la Generación Z” en Ekoparty 2024",
+    "coursera": "Portada de la historia de Coursera “Meet Facundo” sobre Facundo Gandolfo",
+    "itba": "Logo del ITBA, Instituto Tecnológico de Buenos Aires",
+    "google": "Certificado Fundamentos de IA de Google de Facundo Gandolfo",
+    "tecnico": "Escudo de la EEST N°7 José Hernández, donde Facundo Gandolfo se recibió de Técnico en Programación",
+    "andestex": "Landing page de AndesTex, soluciones textiles para la industria, diseñada y desarrollada por Facundo Gandolfo",
+    "ypf": "Tienda online YPF Uniformes de AndesTex, hecha con Astro por Facundo Gandolfo",
+    "laJungla": "Sistema de pedidos y entregas para la verdulería La Jungla, desarrollado por Facundo Gandolfo",
+    "escapadas": "Portal de paquetes turísticos E-Scapadas, proyecto seleccionado en las Olimpiadas ETP 2025",
+    "keyhub": "Web inmobiliaria KeyHub para comprar, vender y alquilar propiedades",
+    "mario": "Super Mario Java: recreación del nivel 1-1 de Super Mario Bros en Java"
   }
 }
