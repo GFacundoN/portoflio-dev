@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import ProjectsIcon from "../assets/icons/projects.svg?react";
 import ProjectCard from "./ProjectCard";
+import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
 import { projectsData } from "../data/projectsData";
 import githubIcon from "../assets/icons/github.svg";
 
@@ -12,23 +14,21 @@ export default function Projects() {
   const translatedProjects = projectsData.map((project, index) => ({
     ...project,
     title: projectsTranslations[index]?.title || "",
-    description: projectsTranslations[index]?.description || ""
+    description: projectsTranslations[index]?.description || "",
+    badge: projectsTranslations[index]?.badge
   }));
 
   return (
     <section id="proyectos" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
       <div className="max-w-[1400px] mx-auto">
-        {/* Título */}
-        <div className="flex items-center gap-3 mb-6 md:mb-8">
-          <ProjectsIcon className="w-10 h-10 text-gray-900 dark:text-white" />
-          <h2 className="text-3xl sm:text-4xl font-extrabold">
-            {t("nav.projects")}
-          </h2>
-        </div>
+        <SectionHeader icon={ProjectsIcon} title={t("nav.projects")} description={t("projects.description")} />
+
         {/* Grid de proyectos */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
-          {translatedProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {translatedProjects.map((project, index) => (
+            <Reveal key={project.id} delay={index * 60}>
+              <ProjectCard project={project} />
+            </Reveal>
           ))}
         </div>
 

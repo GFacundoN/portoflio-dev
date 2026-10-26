@@ -1,0 +1,74 @@
+import { useTranslation } from "react-i18next";
+import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
+import TrophyIcon from "../assets/icons/trophy.svg?react";
+import LinkedInIcon from "../assets/icons/linkedin.svg?react";
+import ExternalIcon from "../assets/icons/external.svg?react";
+import profilePic from "../assets/pfp.jpg";
+
+const EKOPARTY_POST_URL =
+  "https://www.linkedin.com/posts/gfacundon_ekoparty2024-futurohacker-activity-7263215348148027393-bfem";
+
+export default function Achievements() {
+  const { t } = useTranslation();
+  const items = t("achievements.items", { returnObjects: true });
+
+  return (
+    <section id="logros" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-12 lg:px-20 text-gray-900 dark:text-white">
+      <div className="max-w-[1300px] mx-auto">
+        <SectionHeader icon={TrophyIcon} title={t("achievements.title")} description={t("achievements.description")} />
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-5">
+          {/* Preview de la publicación de Ekoparty, con el look de una tarjeta de LinkedIn pero en glass */}
+          <Reveal className="animated-border-card">
+            <a
+              href={EKOPARTY_POST_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-card h-full p-6 flex flex-col gap-4 group"
+            >
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <img src={profilePic} alt="" className="w-11 h-11 rounded-full object-cover shrink-0" />
+                  <div className="min-w-0">
+                    <p className="font-bold leading-tight truncate">Facundo Nicolás Gandolfo</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{t("achievements.post.role")}</p>
+                  </div>
+                </div>
+                <span className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400 shrink-0">
+                  <LinkedInIcon className="w-4 h-4" aria-hidden="true" />
+                  <span className="hidden sm:inline">{t("achievements.post.label")}</span>
+                </span>
+              </div>
+
+              <div className="rounded-xl p-5 bg-gradient-to-br from-[#4885FF]/15 via-transparent to-[#00EC7A]/10 border border-gray-200 dark:border-white/10">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#4885FF]">Ekoparty 2024 · Futuro Hacker</p>
+                <p className="text-lg sm:text-xl font-extrabold mt-1 leading-snug">“Tokengrabber, el terror de la Generación Z”</p>
+              </div>
+
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{t("achievements.post.text")}</p>
+              <p className="text-sm text-[#4885FF]">{t("achievements.post.tags")}</p>
+
+              <span className="mt-auto inline-flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-white group-hover:underline">
+                {t("achievements.post.cta")} <ExternalIcon className="w-4 h-4" aria-hidden="true" />
+              </span>
+            </a>
+          </Reveal>
+
+          {/* Resto de logros */}
+          <ul className="flex flex-col gap-3">
+            {items.map((item, index) => (
+              <Reveal as="li" key={item.title} delay={index * 60} className="glass-card px-5 py-4 flex gap-4 items-start">
+                <span className="mt-1 w-2 h-2 rounded-full bg-[#00EC7A] shrink-0" aria-hidden="true" />
+                <div>
+                  <p className="font-bold leading-snug">{item.title}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}

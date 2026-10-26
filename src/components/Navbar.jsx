@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageIcon from "../assets/icons/languages.svg?react";
 import MonitorIcon from "../assets/icons/themes.svg?react";
+import DocumentIcon from "../assets/icons/document.svg?react";
 
 
 const themes = ["light", "dark", "???"];
 const randomThemes = ["light", "dark"];
 
-export default function Navbar({ setTheme }) {
+export default function Navbar({ setTheme, onOpenCv }) {
   const { t, i18n } = useTranslation();
   const [current, setCurrent] = useState("");
   const [showThemes, setShowThemes] = useState(false);
@@ -15,10 +16,13 @@ export default function Navbar({ setTheme }) {
   const [isDesktop, setIsDesktop] = useState(false);
 
   const navItems = [
+    { name: "services", href: "#servicios", section: "servicios" },
     { name: "experience", href: "#experiencia", section: "experiencia" },
-    { name: "education", href: "#educacion", section: "educacion" },
+    { name: "clients", href: "#clientes", section: "clientes" },
     { name: "projects", href: "#proyectos", section: "proyectos" },
+    { name: "education", href: "#educacion", section: "educacion" },
     { name: "about", href: "#sobremi", section: "sobremi" },
+    { name: "contact", href: "#contacto", section: "contacto" },
   ];
 
   // Ref y ancho para animación de width
@@ -33,7 +37,7 @@ export default function Navbar({ setTheme }) {
 
   // Detectar tamaño de pantalla
   useEffect(() => {
-    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 1024);
     checkDesktop();
     window.addEventListener('resize', checkDesktop);
     return () => window.removeEventListener('resize', checkDesktop);
@@ -88,6 +92,7 @@ export default function Navbar({ setTheme }) {
     const newLang = i18n.language === "es" ? "en" : "es";
     i18n.changeLanguage(newLang);
     localStorage.setItem("lang", newLang);
+    document.documentElement.lang = newLang;
   };
 
   const changeTheme = (selected) => {
@@ -100,7 +105,7 @@ export default function Navbar({ setTheme }) {
   };
 
   return (
-    <nav className="w-full flex z-10 justify-end md:justify-center items-center p-4 fixed">
+    <nav className="w-full flex z-30 justify-end lg:justify-center items-center p-4 fixed">
       {/* Invisible measure block */}
       <div
         ref={measureRef}
@@ -118,7 +123,7 @@ export default function Navbar({ setTheme }) {
             {t(`nav.${item.name}`)}
           </a>
         ))}
-        <a className="text-gray-300">{t("nav.contact")}</a>
+        <span className="flex items-center gap-1.5 px-3 py-0.5 border"><DocumentIcon className="w-4 h-4" />{t("nav.cv")}</span>
         <LanguageIcon className="w-5 h-5" />
         <MonitorIcon className="w-5 h-5 mt-1" />
       </div>
@@ -136,7 +141,7 @@ export default function Navbar({ setTheme }) {
           <a
             key={item.name}
             href={item.href}
-            className={`hidden md:block whitespace-nowrap transition-colors duration-500 ${
+            className={`hidden lg:block whitespace-nowrap transition-colors duration-500 ${
               current === item.name ? "text-[#4885FF]" : "text-gray-700 dark:text-gray-300 hover:text-[#4885FF]"
             }`}
           >
@@ -144,13 +149,14 @@ export default function Navbar({ setTheme }) {
           </a>
         ))}
 
-        {/* Contacto como mailto */}
-        <a
-          href="mailto:gandolfofacundonicolas@gmail.com"
-          className="hidden md:block whitespace-nowrap text-gray-700 dark:text-gray-300 hover:text-[#4885FF] transition-colors duration-500"
+        {/* CV: abre el modal de vista previa */}
+        <button
+          onClick={onOpenCv}
+          className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-0.5 border border-gray-300 dark:border-white/15 text-gray-900 dark:text-white hover:border-[#4885FF] hover:text-[#4885FF] transition-colors duration-300"
         >
-          {t("nav.contact")}
-        </a>
+          <DocumentIcon className="w-4 h-4" aria-hidden="true" />
+          {t("nav.cv")}
+        </button>
 
         {/* Botón idioma */}
         <button

@@ -6,6 +6,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Que el navbar fijo no tape el título al navegar por anclas */
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
 /* Variables de tema */
 [data-theme="dark"] {
   --text-primary: rgb(255, 255, 255);
@@ -106,4 +111,90 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   scrollbar-width: thin;
   scrollbar-color: #2D3340 #000015;
+}
+
+/* Tarjetas glass compartidas por las secciones nuevas */
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border backdrop-blur-md transition-colors duration-300
+      bg-white/70 border-gray-200/80
+      dark:bg-white/[0.04] dark:border-white/10;
+  }
+
+  .glass-card-interactive {
+    @apply glass-card hover:border-[#00EC7A]/40 dark:hover:border-[#00EC7A]/30;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-md border
+      bg-gray-200/70 text-gray-700 border-gray-300
+      dark:bg-gray-700/40 dark:text-gray-300 dark:border-gray-600/50;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 font-bold rounded-full transition-colors
+      px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base
+      text-[#2D3340] bg-[#E8EAEC] hover:bg-[#dce0e3];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 font-bold rounded-full border transition-colors
+      px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base
+      bg-white text-gray-900 border-gray-300 hover:border-gray-400
+      dark:bg-[#1F2937] dark:text-white dark:border-[#5E6673] dark:hover:border-[#A8ADB3];
+  }
+}
+
+/* Borde degradé animado para tarjetas destacadas (misma animación que el badge del hero) */
+.animated-border-card {
+  position: relative;
+  z-index: 0;
+  border-radius: 1rem;
+}
+
+.animated-border-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(270deg, #22c55e, transparent, #4885FF, transparent, #22c55e);
+  background-size: 400% 400%;
+  animation: borderGradientFlow 8s ease infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Aparición al hacer scroll: ease-out al entrar */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animated-border-gradient::before,
+  .animated-border-card::before {
+    animation: none;
+  }
 }

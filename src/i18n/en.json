@@ -1,97 +1,289 @@
 {
-  "welcome": "Welcome",
   "theme": {
+    "switch": "Switch theme",
     "light": "Light",
     "dark": "Dark",
     "random": "Coming soon"
   },
+  "toggleLanguage": "Switch language",
   "nav": {
+    "services": "Services",
     "experience": "Experience",
-    "education": "Education",
+    "clients": "Clients",
     "projects": "Projects",
+    "education": "Education",
     "about": "About me",
-    "contact": "Contact"
-  },
-  "education": {
-    "description": "My academic background and professional certifications that support my experience in web development and modern technologies.",
-    "viewCertificate": "View certificate",
-    "moreCertifications": "+5 more certifications",
-    "certificates": "Certificates",
-    "hoursLearning": "Learning hours",
-    "currentYear": "Current year",
-    "items": [
-      {
-        "title": "Meta Front-End Developer Professional Certificate",
-        "institution": "Meta",
-        "period": "2024",
-        "description": "Focused on developing modern, accessible, and responsive interfaces, applying technologies such as HTML, CSS, JavaScript, and React, along with design best practices and user experience.",
-        "skills": ["React.js", "UX/UI Design", "JavaScript", "Git", "+2"]
-      },
-      {
-        "title": "Google AI Essentials",
-        "institution": "Google",
-        "period": "2024",
-        "description": "Training focused on artificial intelligence fundamentals, responsible AI use, generative models, and practical applications to improve productivity, data analysis, and decision-making today.",
-        "skills": ["Prompt Engineering", "Problem Solving", "Critical Thinking", "+3"]
-      },
-      {
-        "title": "Programming Technician",
-        "institution": "EEST N°7 José Hernández",
-        "period": "2023 - 2024",
-        "description": "Technical training in programming oriented to software development, computational logic, and problem-solving, applying languages, data structures, and best practices, with hands-on project experience and solid foundations for professional environments.",
-        "skills": ["JavaScript", "MySQL", "Java", "Project Management", "+5"]
-      }
-    ]
+    "contact": "Contact",
+    "cv": "Resume"
   },
   "hero": {
     "title": "Hi, I'm Facundo Gandolfo",
-    "subtitle": "Front-End Developer",
-    "paragraph": "Front-end developer specialized in React and JavaScript. I work on web projects from design to implementation, focusing on clean code and practical solutions.",
-    "work": "Check my work",
+    "subtitle": "Full-Stack Developer & Tech Lead",
+    "paragraph": "I design and build web applications end to end with React, TypeScript and Spring Boot. Today I lead the team replacing Modica Seguros' policy management system, and I work with clients in Argentina and abroad turning ideas into real products.",
+    "work": "See my work",
     "contact": "Contact me",
-    "available": "Available to work"
+    "cv": "View resume",
+    "available": "Open to work",
+    "stats": [
+      { "value": "2", "label": "years of experience" },
+      { "value": "6+", "label": "clients served" },
+      { "value": "4.9★", "label": "average on Fiverr" }
+    ]
   },
-  "experience": {
-    "freelancer": {
-      "title": "Freelancer",
-      "date": "January 2025 - Present",
-      "description": "Development of web, desktop, and mobile (Android) applications using React, JavaScript, TypeScript, and MySQL. Direct client collaboration from requirements gathering to implementation and maintenance of solutions.",
-      "learnMore": "Learn more"
-    },
-    "intern": {
-      "title": "Frontend Intern",
-      "company": "Modica Seguros",
-      "date": "May 2025 - November 2025",
-      "description": "Development of corporate web application within a team. Front-end team leadership, coordinating tasks and delegating responsibilities. Collaboration with backend and database teams to align the solution with project requirements."
-    }
-  },
-  "aboutMe": {
-    "paragraph1": "Programming Technician and front-end developer with a solid foundation in academic projects, professional internships, and freelance work, focused on creating clear, functional, and well-thought-out web solutions, combining programming, design, and user experience.",
-    "paragraph2": "Currently a student of Information Systems Engineering at UTN, with certified training from Meta, Google, and MIT Professional Education, among others, participation in tech events and recognition in competitions, always curious to learn and improve.",
-    "paragraph3": "I'm motivated to grow as a developer, gain real experience, and add value to collaborative teams, applying best practices, logical thinking, and commitment to quality, seeking challenges that drive my professional evolution."
-  },
-  "projects": {
-    "code": "Code",
-    "preview": "Preview",
-    "viewMore": "View more",
+  "services": {
+    "title": "Services",
+    "description": "If you have a business or an idea, I'll help you take it to production: from the Figma design to deployment and maintenance.",
+    "cta": "Request a quote",
     "items": [
       {
-        "title": "\"La Jungla\" Grocery Store",
-        "description": "Desktop and mobile app for order management and delivery with statistics module."
+        "title": "Websites & landing pages",
+        "description": "Company sites, landing pages and stores that are fast, responsive and ready to rank on Google."
       },
       {
-        "title": "\"E-Scapadas\" - ETP Programming Olympics 2025",
-        "description": "Travel package sales portal with authentication, roles, email sending, etc."
+        "title": "Internal systems & dashboards",
+        "description": "I replace Excel spreadsheets with web apps featuring roles, reports and data import/export."
+      },
+      {
+        "title": "Desktop & mobile apps",
+        "description": "Custom apps to manage orders, stock or customers, connected to your own database."
+      },
+      {
+        "title": "UI design in Figma",
+        "description": "Clean, well-organized prototypes and designs, ready to validate with your users or hand off to development."
+      },
+      {
+        "title": "Maintenance & improvements",
+        "description": "Support, new features and refactors so your product keeps growing without breaking."
+      }
+    ]
+  },
+  "experience": {
+    "current": "Present",
+    "promotion": "Promotion",
+    "freelanceLink": "View Fiverr profile",
+    "items": [
+      {
+        "company": "Modica Seguros",
+        "location": "Avellaneda, Buenos Aires · Hybrid",
+        "roles": [
+          {
+            "title": "Full-Stack Developer & Tech Lead",
+            "promoted": true,
+            "date": "April 2026 - Present",
+            "bullets": [
+              "Lead the development of the internal application (React, TypeScript, Spring Boot, MySQL) that replaces the Excel-based policy management, including an admin dashboard.",
+              "Coordinate a team of interns with GitHub Projects, run regular code reviews and guide technical decisions.",
+              "Restructured the backend into a package-by-feature architecture, reducing the learning curve for new developers.",
+              "Implemented Excel ↔ system import and export (SheetJS and Apache POI) and created the team's training material.",
+              "Built the informational website for clients, with an assistant and direct contact with the office."
+            ]
+          },
+          {
+            "title": "Designer & Community Manager",
+            "date": "January 2026 - Present",
+            "bullets": [
+              "Design logos and posts in Figma and manage the company's Instagram and LinkedIn."
+            ]
+          },
+          {
+            "title": "Front-End Team Lead · Internship",
+            "date": "May 2025 - November 2025",
+            "bullets": [
+              "Built a corporate web application as a team, leading the front-end: coordinating tasks and delegating responsibilities.",
+              "Worked with the backend and database teams to align the solution with project requirements."
+            ]
+          }
+        ]
+      },
+      {
+        "company": "Fiverr / Freelance",
+        "location": "Remote",
+        "roles": [
+          {
+            "title": "Freelance Developer & Designer",
+            "date": "January 2025 - Present",
+            "bullets": [
+              "Build web, desktop and mobile applications for clients in Argentina, Spain, Portugal and the United States.",
+              "Manage each project end to end: requirements, scope, Figma design, implementation and maintenance, within agreed deadlines and budgets."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "clients": {
+    "title": "Client work",
+    "description": "Some real projects I built for businesses: what they needed, what I built and what changed.",
+    "problem": "Need",
+    "solution": "Solution",
+    "result": "Outcome",
+    "visit": "View project",
+    "code": "Code",
+    "items": [
+      {
+        "client": "Modica Seguros",
+        "type": "Internal system · Website",
+        "problem": "All policy management lived in Excel spreadsheets that were hard to maintain and share.",
+        "solution": "A web application with an admin dashboard, roles and Excel import/export, plus an informational website for their clients.",
+        "result": "Operations are centralized in a single system, and I now lead the project with a team of interns."
+      },
+      {
+        "client": "AndesTex",
+        "type": "Landing page",
+        "problem": "An industrial textile solutions company needed a professional online presence, fast.",
+        "solution": "Design and development of a company landing page focused on showcasing their products and generating leads.",
+        "result": "Delivered in 2 days. The client came back to order their online store."
+      },
+      {
+        "client": "AndesTex",
+        "type": "Online store",
+        "problem": "After the landing page, they needed to sell and present their product catalog in an organized way.",
+        "solution": "An online store with a product catalog, matching the landing page's visual identity.",
+        "result": "Returning client: from a landing page to their own sales platform."
+      },
+      {
+        "client": "\"La Jungla\" Greengrocer",
+        "type": "Desktop + mobile app",
+        "problem": "Orders and deliveries were tracked by hand, with no way to measure sales.",
+        "solution": "A desktop app for the store and a mobile app for deliveries, with a statistics module.",
+        "result": "Orders and deliveries organized in a single system, with data to make decisions."
+      }
+    ],
+    "testimonials": {
+      "title": "What my clients say",
+      "source": "Verified Fiverr review",
+      "recurring": "Returning client",
+      "viewAll": "See all reviews"
+    }
+  },
+  "projects": {
+    "description": "Personal and academic projects where I explore new technologies.",
+    "code": "Code",
+    "preview": "Preview",
+    "viewMore": "See more on GitHub",
+    "items": [
+      {
+        "title": "\"E-Scapadas\" - ETP Olympics 2025",
+        "description": "Travel package sales portal with authentication, roles and email delivery.",
+        "badge": "Selected among the best in Buenos Aires"
       },
       {
         "title": "\"KeyHub\" Real Estate Developer",
-        "description": "Property buying, selling, and rental website. With authentication, roles, email sending, etc."
+        "description": "Website for buying, selling and renting properties. With authentication, roles, email sending, etc."
       },
       {
         "title": "Super Mario Java",
         "description": "First level of the Super Mario Bros game developed by Nintendo in the 80s, but made in Java."
       }
     ]
+  },
+  "education": {
+    "description": "My academic background and professional certifications.",
+    "viewCertificate": "View certificate",
+    "viewProgram": "View program",
+    "inProgress": "In progress",
+    "moreCertifications": "More certifications on LinkedIn",
+    "items": [
+      {
+        "title": "Full Stack Developer",
+        "institution": "ITBA · Buenos Aires Institute of Technology",
+        "period": "August 2026 - In progress",
+        "badge": "Santander Open Academy scholarship · 1 of 400 selected",
+        "description": "Intensive full-stack program focused on the MERN stack (MongoDB, Express, React, Node.js), Next.js, databases, web performance and agile methodologies.",
+        "skills": ["MERN", "Next.js", "Node.js", "SQL", "Agile"]
+      },
+      {
+        "title": "Meta Front-End Developer Professional Certificate",
+        "institution": "Meta",
+        "period": "2024",
+        "description": "9 courses focused on building modern, accessible and responsive interfaces with HTML, CSS, JavaScript and React, along with design and user experience best practices.",
+        "skills": ["React.js", "UX/UI Design", "JavaScript", "Git", "+2"]
+      },
+      {
+        "title": "Google AI Essentials",
+        "institution": "Google",
+        "period": "2024",
+        "description": "Artificial intelligence fundamentals, responsible AI use, generative models and practical applications to improve productivity and decision-making.",
+        "skills": ["Prompt Engineering", "Problem Solving", "Critical Thinking", "+3"]
+      },
+      {
+        "title": "Programming Technician",
+        "institution": "EEST N°7 José Hernández",
+        "period": "2019 - 2025",
+        "description": "Technical degree in software development, computational logic, data structures and project management, with hands-on projects and technology competitions.",
+        "skills": ["JavaScript", "MySQL", "Java", "Project Management", "+5"]
+      }
+    ]
+  },
+  "achievements": {
+    "title": "Achievements & talks",
+    "description": "Competitions, talks and recognition beyond day-to-day work.",
+    "post": {
+      "label": "LinkedIn post",
+      "role": "Speaker · Ekoparty Security Conference 2024",
+      "text": "I spoke at \"Tokengrabber, el terror de la Generación Z\" alongside HoneyCorpSec, as part of the Futuro Hacker track at Ekoparty, the largest information security conference in Latin America.",
+      "tags": "#ekoparty2024 #futurohacker",
+      "cta": "View post"
+    },
+    "items": [
+      {
+        "title": "National ETP Olympics 2025",
+        "description": "\"E-Scapadas\" was selected among the best projects in Buenos Aires."
+      },
+      {
+        "title": "Santander Open Academy scholarship",
+        "description": "One of 400 selected for ITBA's Full Stack Developer program."
+      },
+      {
+        "title": "Institutional distinction",
+        "description": "EEST N°7, for representing the school in academic activities and technology competitions."
+      },
+      {
+        "title": "Outstanding student · Coursera",
+        "description": "Recognized for performance in 2025."
+      },
+      {
+        "title": "Volunteer · EducationUSA Argentina",
+        "description": "LL.M Fair 2025."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Stack & skills",
+    "categories": {
+      "frontend": "Front-end",
+      "backend": "Back-end",
+      "data": "Databases",
+      "leadership": "Leadership & tools"
+    },
+    "languagesTitle": "Languages",
+    "languages": [
+      { "name": "Spanish", "level": "Native" },
+      { "name": "English", "level": "B2 · Upper-intermediate" }
+    ]
+  },
+  "aboutMe": {
+    "paragraph1": "I'm a Programming Technician and full-stack developer. I started as an intern at Modica Seguros and today I'm the technical lead of the team building their internal system, while I keep working with my own clients as a freelancer.",
+    "paragraph2": "I care about both the code and the product: how to structure a backend so a new team understands it quickly, how an interface looks in Figma before writing a single line, and how to explain a technical decision to someone who isn't technical.",
+    "paragraph3": "I'm currently taking ITBA's Full Stack Developer program on a Santander Open Academy scholarship. I'm looking for projects and teams where I can keep growing and deliver real value."
+  },
+  "contact": {
+    "title": "Shall we work together?",
+    "description": "Whether you're looking to add a developer to your team or have a project in mind, send me a message and I'll get back to you shortly.",
+    "whatsapp": "Message me on WhatsApp",
+    "email": "Send an email",
+    "cv": "Download resume",
+    "whatsappMessage": "Hi Facundo! I saw your portfolio and I'm interested in..."
+  },
+  "cv": {
+    "title": "Resume",
+    "subtitle": "Facundo Gandolfo · Full-Stack Developer & Tech Lead",
+    "download": "Download",
+    "open": "Open in new tab",
+    "close": "Close",
+    "noPreview": "Your browser can't display PDFs inside the page. You can open it in a new tab or download it.",
+    "fileName": "Facundo Gandolfo - Resume.pdf",
+    "languageLabel": "Resume language"
   },
   "footer": {
     "rights": "All rights reserved"

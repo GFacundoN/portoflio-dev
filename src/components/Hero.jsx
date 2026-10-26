@@ -3,12 +3,20 @@ import { useTranslation } from "react-i18next";
 import profilePic from "../assets/pfp.jpg";
 import LinkedInIcon from "../assets/icons/linkedin.svg?react";
 import GithubIcon from "../assets/icons/github.svg?react";
-import ContactIcon from "../assets/icons/contact.svg?react";
+import WhatsAppIcon from "../assets/icons/whatsapp.svg?react";
+import DocumentIcon from "../assets/icons/document.svg?react";
 import ArrowIcon from "../assets/icons/arrow.svg?react";
+import ContactIcon from "../assets/icons/contact.svg?react";
+import { contactData, whatsappUrl } from "../data/contactData";
+import { track } from "../utils/track";
 
-export default function Hero() {
+const socialClass =
+  "transition-colors border-2 rounded-full p-2 bg-white dark:bg-[#1F2937] border-gray-300 dark:border-[#2E3845] hover:border-gray-400 dark:hover:border-white text-gray-900 dark:text-white";
+
+export default function Hero({ onOpenCv }) {
   const [visible, setVisible] = useState(false);
   const { t } = useTranslation();
+  const stats = t("hero.stats", { returnObjects: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => setVisible(true), 100);
@@ -16,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="min-h-[calc(100vh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20">
+    <section className="min-h-[calc(100vh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-24 pb-12 md:py-0">
       <div
         className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 items-center w-full max-w-[1300px] transition-all duration-700 ease-out transform ${
           visible
@@ -38,53 +46,71 @@ export default function Hero() {
 
           {/* Botones */}
           <div className="flex gap-2 sm:gap-3 flex-wrap">
-            <a
-              href="#proyectos"
-              className="flex items-center gap-2 text-[#2D3340] font-bold bg-[#E8EAEC] hover:bg-[#dce0e3] transition-colors px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base"
-            >
+            <a href="#proyectos" className="btn-primary">
               {t("hero.work")} <ArrowIcon className="w-5 h-5 text-[#2D3340]" />
             </a>
 
-            <a
-              href="mailto:gandolfofacundonicolas@gmail.com"
-              className="flex items-center gap-2 font-bold border transition-colors px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base bg-white dark:bg-[#1F2937] text-gray-900 dark:text-white border-gray-300 dark:border-[#5E6673] hover:border-gray-400 dark:hover:border-[#A8ADB3]"
-            >
-              <ContactIcon className="w-5 h-5 text-gray-900 dark:text-white" />
+            <a href="#contacto" className="btn-secondary">
+              <ContactIcon className="w-5 h-5" />
               {t("hero.contact")}
             </a>
+
+            <button onClick={onOpenCv} className="btn-secondary">
+              <DocumentIcon className="w-5 h-5" />
+              {t("hero.cv")}
+            </button>
           </div>
 
           {/* Redes y estado */}
           <div className="flex items-center gap-4 mt-2 flex-wrap">
             <div className="flex gap-3 text-gray-600 dark:text-gray-400">
-              <a
-                href="https://www.linkedin.com/in/gfacundon/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors border-2 rounded-full p-2 bg-white dark:bg-[#1F2937] border-gray-300 dark:border-[#2E3845] hover:border-gray-400 dark:hover:border-white text-gray-900 dark:text-white"
-              >
+              <a href={contactData.linkedin} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="LinkedIn">
                 <LinkedInIcon className="w-5 h-5 text-gray-900 dark:text-white" />
               </a>
+              <a href={contactData.github} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="GitHub">
+                <GithubIcon className="w-5 h-5 text-gray-900 dark:text-white" />
+              </a>
               <a
-                href="https://github.com/gfacundon"
+                href={whatsappUrl(t("contact.whatsappMessage"))}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors border-2 rounded-full p-2 bg-white dark:bg-[#1F2937] border-gray-300 dark:border-[#2E3845] hover:border-gray-400 dark:hover:border-white text-gray-900 dark:text-white"
+                onClick={() => track("whatsapp_click", { location: "hero" })}
+                className={socialClass}
+                aria-label="WhatsApp"
               >
-                <GithubIcon className="w-5 h-5 text-gray-900 dark:text-white" />
+                <WhatsAppIcon className="w-5 h-5 text-gray-900 dark:text-white" />
               </a>
             </div>
             <a
-              href="https://www.linkedin.com/in/gfacundon/"
+              href={contactData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="animated-border-gradient"
             >
-              <div className="px-4 py-2 rounded-full font-bold text-sm relative z-10 text-gray-900 dark:text-white">
+              <div className="px-4 py-2 rounded-full font-bold text-sm relative z-10 text-gray-900 dark:text-white flex items-center gap-2">
+                <span className="relative flex w-2 h-2" aria-hidden="true">
+                  <span className="absolute inline-flex w-full h-full rounded-full bg-[#00EC7A] opacity-60 motion-safe:animate-ping" />
+                  <span className="relative inline-flex w-2 h-2 rounded-full bg-[#00EC7A]" />
+                </span>
                 {t("hero.available")}
               </div>
             </a>
           </div>
+
+          {/* Números */}
+          <dl className="grid grid-cols-3 gap-2 sm:gap-3 mt-4 max-w-lg">
+            {stats.map((stat) => (
+              <div key={stat.label} className="glass-card px-3 sm:px-4 py-3">
+                <dt className="sr-only">{stat.label}</dt>
+                <dd className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white tabular-nums">
+                  {stat.value}
+                </dd>
+                <dd className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-tight mt-0.5" aria-hidden="true">
+                  {stat.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
         {/* Imagen de perfil */}
