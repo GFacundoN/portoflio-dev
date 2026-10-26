@@ -13,7 +13,7 @@ export default function Services() {
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-10 lg:gap-20">
         {/* Columna izquierda: queda fija mientras se recorre la lista */}
         <Reveal className="lg:sticky lg:top-28 self-start flex flex-col gap-4">
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">{t("services.title")}</h2>
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight">{t("services.title")}</h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-md">
             {t("services.description")}
           </p>

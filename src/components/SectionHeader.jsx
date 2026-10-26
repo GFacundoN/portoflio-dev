@@ -5,7 +5,7 @@ export default function SectionHeader({ title, description, aside }) {
   return (
     <Reveal className="mb-10 md:mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
       <div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] text-gray-900 dark:text-white">
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight leading-tight text-gray-900 dark:text-white">
           {title}
         </h2>
         {description && (

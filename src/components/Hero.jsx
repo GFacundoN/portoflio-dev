@@ -24,7 +24,7 @@ export default function Hero({ onOpenCv }) {
   }, []);
 
   return (
-    <section className="min-h-[calc(100vh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-24 pb-12 md:py-0">
+    <section className="min-h-[calc(100vh)] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-20 pt-24 pb-12 md:pt-24 md:pb-12">
       <div
         className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 items-center w-full max-w-[1300px] transition-all duration-700 ease-out transform ${
           visible
@@ -34,7 +34,7 @@ export default function Hero({ onOpenCv }) {
       >
         {/* Texto */}
         <div className="flex flex-col gap-4">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight leading-[0.95] mb-2 sm:mb-3 text-gray-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] mb-2 sm:mb-3 text-gray-900 dark:text-white">
             {t("hero.title")}
           </h1>
           <h2 className="text-lg sm:text-xl font-medium text-gray-700 dark:text-gray-300">
