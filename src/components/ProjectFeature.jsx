@@ -36,6 +36,9 @@ export default function ProjectFeature({ project }) {
         muted
         loop
         playsInline
+        disablePictureInPicture
+        disableRemotePlayback
+        controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
         preload="none"
         poster={project.video.poster}
         aria-label={project.videoLabel}

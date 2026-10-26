@@ -18,7 +18,7 @@ const navItems = [
 ];
 
 const iconButton =
-  "w-9 h-9 flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-black/[0.05] dark:hover:bg-white/[0.07] transition-colors duration-200";
+  "w-9 h-9 flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-[#464FB4]/10 dark:hover:bg-[#818CF8]/15 transition-colors duration-200";
 
 export default function Navbar({ setTheme, onOpenCv }) {
   const { t, i18n } = useTranslation();
@@ -90,9 +90,9 @@ export default function Navbar({ setTheme, onOpenCv }) {
 
   return (
     <nav className="w-full flex z-30 justify-end lg:justify-center items-center p-4 fixed">
-      {/* Barra obsidiana: superficie oscura translúcida con un brillo fino en el borde superior */}
+      {/* Barra con material "chrome": vidrio azul marino a tono con el fondo */}
       <div
-        className={`obsidian-bar relative rounded-full p-1 flex items-center gap-1 text-sm font-semibold transition-[opacity,transform] duration-500 ease-out ${
+        className={`chrome chrome-blur relative rounded-full p-1 flex items-center gap-1 text-sm font-semibold transition-[opacity,transform] duration-500 ease-out ${
           navVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
         }`}
       >
@@ -100,7 +100,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
         <div ref={linksRef} className="relative hidden lg:flex items-center" onMouseLeave={() => setHovered(null)}>
           <span
             aria-hidden="true"
-            className="obsidian-pill absolute top-0 bottom-0 left-0 rounded-full"
+            className="chrome-pill absolute top-0 bottom-0 left-0 rounded-full"
             style={{
               width: indicator.w,
               transform: `translateX(${indicator.x}px)`,
@@ -125,12 +125,12 @@ export default function Navbar({ setTheme, onOpenCv }) {
           ))}
         </div>
 
-        <span className="hidden lg:block w-px h-5 mx-1 bg-black/10 dark:bg-white/10" aria-hidden="true" />
+        <span className="hidden lg:block w-px h-5 mx-1 bg-[#464FB4]/15 dark:bg-[#818CF8]/20" aria-hidden="true" />
 
         {/* CV: abre el modal de vista previa */}
         <button
           onClick={onOpenCv}
-          className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-gray-900 dark:text-white bg-black/[0.05] dark:bg-white/[0.08] hover:bg-black/[0.09] dark:hover:bg-white/[0.13] transition-colors duration-200"
+          className="flex items-center gap-1.5 whitespace-nowrap rounded-full px-3.5 py-2 text-gray-900 dark:text-white bg-[#464FB4]/10 dark:bg-[#818CF8]/15 hover:bg-[#464FB4]/[0.16] dark:hover:bg-[#818CF8]/25 transition-colors duration-200"
         >
           <DocumentIcon className="w-4 h-4" aria-hidden="true" />
           {t("nav.cv")}
@@ -153,7 +153,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
           </button>
 
           <div
-            className={`obsidian-bar absolute right-0 mt-3 min-w-[9rem] rounded-2xl p-1 text-sm font-semibold z-50 transition-[opacity,transform] duration-200 ${
+            className={`chrome chrome-blur absolute right-0 mt-3 min-w-[9rem] rounded-2xl p-1 text-sm font-semibold z-50 transition-[opacity,transform] duration-200 ${
               showThemes
                 ? "opacity-100 translate-y-0 pointer-events-auto ease-out"
                 : "opacity-0 -translate-y-1 pointer-events-none ease-in"
@@ -163,7 +163,7 @@ export default function Navbar({ setTheme, onOpenCv }) {
               <button
                 key={tKey}
                 onClick={() => changeTheme(tKey)}
-                className="block w-full text-left px-3 py-2 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-black/[0.05] dark:hover:bg-white/[0.08] transition-colors"
+                className="block w-full text-left px-3 py-2 rounded-xl text-gray-700 dark:text-gray-200 hover:bg-[#464FB4]/10 dark:hover:bg-[#818CF8]/15 transition-colors"
               >
                 {tKey === "???" ? t("theme.random") : t(`theme.${tKey}`)}
               </button>

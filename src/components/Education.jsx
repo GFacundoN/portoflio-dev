@@ -72,37 +72,39 @@ function EducationCard({ item, index }) {
 }
 
 // Certificación destacada: ocupa todo el ancho y detalla los cursos que incluye.
+// La imagen mantiene su proporción para no quedar perdida en un bloque blanco.
 function FeaturedCertificate({ item }) {
   const { t } = useTranslation();
 
   return (
-    <Reveal className="glass-card overflow-hidden grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] mb-4 md:mb-6">
-      <a
-        href={item.certificateUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center justify-center bg-white"
-        aria-label={`${t("education.viewCertificate")}: ${item.title}`}
-      >
-        <img src={item.image} alt="" loading="lazy" decoding="async" width="772" height="404" className="w-full h-auto max-h-64 lg:max-h-none object-contain" />
-      </a>
-
-      <div className="p-6 sm:p-8 flex flex-col gap-5">
-        <div>
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight leading-snug">{item.title}</h3>
-            <p className="meta">{item.period}</p>
-          </div>
-          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{item.institution} · Coursera</p>
+    <Reveal className="glass-card p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-6 lg:gap-10 mb-4 md:mb-6">
+      <div className="flex flex-col gap-3">
+        <a
+          href={item.certificateUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block overflow-hidden rounded-lg border border-gray-200 dark:border-white/[0.08]"
+          aria-label={`${t("education.viewCertificate")}: ${item.title}`}
+        >
+          <img src={item.image} alt="" loading="lazy" decoding="async" width="772" height="404" className="w-full h-auto" />
+        </a>
+        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 mt-1">
+          <h3 className="text-lg font-bold leading-snug">{item.title}</h3>
+          <p className="meta">{item.period}</p>
         </div>
+        <p className="text-gray-600 dark:text-gray-400 text-sm -mt-1">{item.institution} · Coursera</p>
+        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{item.description}</p>
+        <a href={item.certificateUrl} target="_blank" rel="noopener noreferrer" className={`${textLink} self-start`}>
+          {t("education.viewCertificate")} ↗
+        </a>
+      </div>
 
-        <p className="text-sm sm:text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">{item.description}</p>
-
+      <div className="flex flex-col gap-5">
         <div>
-          <p className="meta mb-3">{t("education.coursesTitle")}</p>
-          <ol className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm text-gray-800 dark:text-gray-200">
+          <p className="meta mb-2.5">{t("education.coursesTitle")}</p>
+          <ol className="text-sm text-gray-800 dark:text-gray-200">
             {item.courses.map((course, index) => (
-              <li key={course} className="grid grid-cols-[1.75rem_1fr]">
+              <li key={course} className="grid grid-cols-[2rem_1fr] py-2 border-b border-gray-200 dark:border-white/[0.06] last:border-b-0">
                 <span className="font-mono text-xs text-gray-400 dark:text-gray-500 pt-0.5 tabular-nums">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -120,10 +122,6 @@ function FeaturedCertificate({ item }) {
             ))}
           </div>
         </div>
-
-        <a href={item.certificateUrl} target="_blank" rel="noopener noreferrer" className={`${textLink} self-start`}>
-          {t("education.viewCertificate")} ↗
-        </a>
       </div>
     </Reveal>
   );

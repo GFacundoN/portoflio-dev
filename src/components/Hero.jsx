@@ -10,8 +10,7 @@ import ContactIcon from "../assets/icons/contact.svg?react";
 import { contactData, whatsappUrl } from "../data/contactData";
 import { track } from "../utils/track";
 
-const socialClass =
-  "transition-colors border-2 rounded-full p-2 bg-white dark:bg-[#1F2937] border-gray-300 dark:border-[#2E3845] hover:border-gray-400 dark:hover:border-white text-gray-900 dark:text-white";
+const socialClass = "icon-button";
 
 export default function Hero({ onOpenCv }) {
   const [visible, setVisible] = useState(false);
@@ -65,10 +64,10 @@ export default function Hero({ onOpenCv }) {
           <div className="flex items-center gap-4 mt-2 flex-wrap">
             <div className="flex gap-3 text-gray-600 dark:text-gray-400">
               <a href={contactData.linkedin} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="LinkedIn">
-                <LinkedInIcon className="w-5 h-5 text-gray-900 dark:text-white" />
+                <LinkedInIcon className="w-5 h-5" />
               </a>
               <a href={contactData.github} target="_blank" rel="noopener noreferrer" className={socialClass} aria-label="GitHub">
-                <GithubIcon className="w-5 h-5 text-gray-900 dark:text-white" />
+                <GithubIcon className="w-5 h-5" />
               </a>
               <a
                 href={whatsappUrl(t("contact.whatsappMessage"))}
@@ -78,7 +77,7 @@ export default function Hero({ onOpenCv }) {
                 className={socialClass}
                 aria-label="WhatsApp"
               >
-                <WhatsAppIcon className="w-5 h-5 text-gray-900 dark:text-white" />
+                <WhatsAppIcon className="w-5 h-5" />
               </a>
             </div>
             <a

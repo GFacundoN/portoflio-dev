@@ -41,7 +41,7 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12">
           {translatedProjects.map((project, index) => (
-            <Reveal key={project.id} delay={index * 50} className={`rule ${project.featured ? "lg:col-span-2" : ""}`}>
+            <Reveal key={project.id} delay={index * 50} className={project.featured ? "rule lg:col-span-2 mt-4" : ""}>
               {project.featured ? <ProjectFeature project={project} /> : <ProjectCard project={project} />}
             </Reveal>
           ))}

@@ -46,23 +46,23 @@
     "items": [
       {
         "title": "Webs y landing pages",
-        "description": "Para que te encuentren y te escriban. La de AndesTex salió en dos días."
+        "description": "Para que te encuentren y te escriban: rápidas, cómodas en el celular y listas para aparecer en Google."
       },
       {
         "title": "Sistemas internos y dashboards",
-        "description": "Si tu negocio depende de una planilla que solo entiende una persona, eso se puede convertir en un sistema con usuarios, permisos y reportes. Es lo que hago todos los días en Modica."
+        "description": "Si tu negocio depende de una planilla que solo entiende una persona, eso se puede convertir en un sistema con usuarios, permisos y reportes."
       },
       {
         "title": "Apps desktop y móviles",
-        "description": "Para tomar pedidos, organizar repartos o llevar stock. Como la de La Jungla: una app para el mostrador y otra para el repartidor."
+        "description": "Para tomar pedidos, organizar repartos o llevar stock, conectadas a tu propia base de datos."
       },
       {
         "title": "Diseño UI en Figma",
-        "description": "Si todavía no querés programar nada, empezamos por un prototipo para probar la idea. Varios clientes de Fiverr me contrataron solo para esto."
+        "description": "Si todavía no querés programar nada, empezamos por un prototipo para probar la idea con usuarios reales."
       },
       {
         "title": "Mantenimiento y mejoras",
-        "description": "Arreglos, funciones nuevas u ordenar código que creció sin plan. Ya reestructuré un backend entero para que un equipo nuevo pudiera trabajar en él."
+        "description": "Arreglos, funciones nuevas u ordenar código que creció sin plan, para poder seguir construyendo sobre él."
       }
     ]
   },
@@ -129,13 +129,6 @@
     "visit": "Ver proyecto",
     "code": "Código",
     "items": [
-      {
-        "client": "Modica Seguros",
-        "type": "Sistema interno · Web",
-        "problem": "Toda la gestión de pólizas vivía en planillas de Excel, difíciles de mantener y de compartir.",
-        "solution": "Aplicación web con dashboard administrativo, roles e importación/exportación de Excel, más una web informativa para sus clientes.",
-        "result": "Las pólizas pasan de varias planillas a un solo sistema. Entré al proyecto como pasante y hoy lo lidero."
-      },
       {
         "client": "AndesTex",
         "type": "Landing page",
@@ -328,7 +321,7 @@
   },
   "aboutMe": {
     "paragraph1": "Entré a Modica Seguros como pasante en 2025. Un año después estoy a cargo de la parte técnica del sistema interno: decido cómo se organiza el código, reviso lo que escriben los pasantes y armé el material con el que aprenden.",
-    "paragraph2": "Me importa tanto que el código se entienda como que el producto se use. Por eso diseño en Figma antes de programar, y reorganicé el backend para que alguien nuevo no tenga que adivinar dónde está cada cosa.",
+    "paragraph2": "Con la IA escribiendo cada vez más código, lo que hace la diferencia es entender el problema y saber explicarlo: traducir lo técnico para quien no lo es y trabajar bien en equipo. Por eso diseño en Figma antes de programar, y reorganicé el backend para que alguien nuevo no tenga que adivinar dónde está cada cosa.",
     "paragraph3": "Ahora estoy cursando el Full Stack Developer del ITBA con una beca de Santander Open Academy. Me interesan equipos que cuiden cómo trabajan, no solo qué entregan."
   },
   "contact": {
@@ -351,5 +344,11 @@
   },
   "footer": {
     "rights": "Todos los derechos reservados"
+  },
+  "countries": {
+    "AR": "Argentina",
+    "ES": "España",
+    "PT": "Portugal",
+    "US": "Estados Unidos"
   }
 }

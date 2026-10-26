@@ -62,16 +62,22 @@ function CaseBody({ data, text }) {
   );
 }
 
-function CaseCard({ data, text, index }) {
-  // Caso destacado (sin captura): ocupa todo el ancho.
-  if (data.featured) {
-    return (
-      <Reveal delay={index * 60} className="glass-card md:col-span-2 p-6 sm:p-8">
-        <CaseBody data={data} text={text} />
-      </Reveal>
-    );
+function Avatar({ review }) {
+  if (review.avatar) {
+    return <img src={review.avatar} alt="" width="40" height="40" loading="lazy" decoding="async" className="w-10 h-10 rounded-full shrink-0" />;
   }
+  return (
+    <span
+      aria-hidden="true"
+      className="w-10 h-10 rounded-full shrink-0 flex items-center justify-center text-base font-bold"
+      style={{ background: review.initial.bg, color: review.initial.fg }}
+    >
+      {review.initial.letter}
+    </span>
+  );
+}
 
+function CaseCard({ data, text, index }) {
   // Captura alta de un sitio entregado: se recorre al pasar el mouse.
   if (data.shot) {
     return (
@@ -125,14 +131,17 @@ export default function Clients() {
               <blockquote lang={review.lang} className="text-[15px] text-gray-800 dark:text-gray-200 leading-relaxed flex-1">
                 “{review.text}”
               </blockquote>
-              <figcaption>
-                <p className="text-sm font-bold text-gray-900 dark:text-white">
-                  {review.author}
-                  {review.project && <span className="font-normal text-gray-500 dark:text-gray-400"> · {review.project}</span>}
-                </p>
-                <p className="meta mt-1">
-                  {review.country} · {review.recurring ? t("clients.testimonials.recurring") : "Fiverr"}
-                </p>
+              <figcaption className="flex items-center gap-3">
+                <Avatar review={review} />
+                <div className="min-w-0">
+                  <p className="text-sm font-bold text-gray-900 dark:text-white break-words">
+                    {review.author}
+                    {review.project && <span className="font-normal text-gray-500 dark:text-gray-400"> · {review.project}</span>}
+                  </p>
+                  <p className="meta mt-0.5">
+                    {t(`countries.${review.country}`)} · {review.recurring ? t("clients.testimonials.recurring") : "Fiverr"}
+                  </p>
+                </div>
               </figcaption>
             </Reveal>
           ))}

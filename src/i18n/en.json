@@ -46,23 +46,23 @@
     "items": [
       {
         "title": "Websites & landing pages",
-        "description": "So people find you and get in touch. AndesTex's went live in two days."
+        "description": "So people find you and get in touch: fast, comfortable on mobile and ready to show up on Google."
       },
       {
         "title": "Internal systems & dashboards",
-        "description": "If your business runs on a spreadsheet only one person understands, it can become a system with users, permissions and reports. That's what I do every day at Modica."
+        "description": "If your business runs on a spreadsheet only one person understands, it can become a system with users, permissions and reports."
       },
       {
         "title": "Desktop & mobile apps",
-        "description": "To take orders, organize deliveries or track stock. Like La Jungla's: one app for the counter and another for the delivery driver."
+        "description": "To take orders, organize deliveries or track stock, connected to your own database."
       },
       {
         "title": "UI design in Figma",
-        "description": "If you don't want to build anything yet, we start with a prototype to test the idea. Several Fiverr clients hired me just for this."
+        "description": "If you don't want to build anything yet, we start with a prototype to test the idea with real users."
       },
       {
         "title": "Maintenance & improvements",
-        "description": "Fixes, new features, or cleaning up code that grew without a plan. I've already restructured an entire backend so a new team could work on it."
+        "description": "Fixes, new features, or cleaning up code that grew without a plan, so you can keep building on it."
       }
     ]
   },
@@ -129,13 +129,6 @@
     "visit": "View project",
     "code": "Code",
     "items": [
-      {
-        "client": "Modica Seguros",
-        "type": "Internal system · Website",
-        "problem": "All policy management lived in Excel spreadsheets that were hard to maintain and share.",
-        "solution": "A web application with an admin dashboard, roles and Excel import/export, plus an informational website for their clients.",
-        "result": "Policies move from several spreadsheets into a single system. I joined the project as an intern and now I lead it."
-      },
       {
         "client": "AndesTex",
         "type": "Landing page",
@@ -328,7 +321,7 @@
   },
   "aboutMe": {
     "paragraph1": "I joined Modica Seguros as an intern in 2025. A year later I'm in charge of the technical side of their internal system: I decide how the code is organized, review what the interns write, and created the material they learn from.",
-    "paragraph2": "I care as much about code people can understand as about a product people actually use. That's why I design in Figma before coding, and why I reorganized the backend so someone new doesn't have to guess where everything lives.",
+    "paragraph2": "With AI writing more and more of the code, what makes the difference is understanding the problem and being able to explain it: translating the technical side for people who aren't technical, and working well as a team. That's why I design in Figma before coding, and why I reorganized the backend so someone new doesn't have to guess where everything lives.",
     "paragraph3": "I'm currently taking ITBA's Full Stack Developer program on a Santander Open Academy scholarship. I'm drawn to teams that care about how they work, not just what they ship."
   },
   "contact": {
@@ -351,5 +344,11 @@
   },
   "footer": {
     "rights": "All rights reserved"
+  },
+  "countries": {
+    "AR": "Argentina",
+    "ES": "Spain",
+    "PT": "Portugal",
+    "US": "United States"
   }
 }
